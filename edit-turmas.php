@@ -2,13 +2,12 @@
 include_once('common/connection.php');
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'head.html';?>
 <head>
     <!-- Title -->
-    <title>Visualização de Turmas</title>
+    <title>Criação de Turma</title>
 
 </head>
 
@@ -24,7 +23,11 @@ include_once('common/connection.php');
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-turmas.php">Turmas</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-turmas.php">Lista de Turmas</a>
+                    <i class="fa fa-angle-right g-ml-7"></i>
+                </li>
+                <li class="list-inline-item g-mr-7 g-color-primary">
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="">Criação de Turma</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
             </ul>
@@ -67,7 +70,7 @@ include_once('common/connection.php');
                     <!-- Nav tabs -->
                     <ul class="nav nav-justified u-nav-v1-1 u-nav-primary g-brd-bottom--md g-brd-bottom-2 g-brd-primary g-mb-20" role="tablist" data-target="nav-1-1-default-hor-left-underline" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-primary g-mb-20">
                         <li class="nav-item">
-                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Visualização de Turmas</a>
+                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Criação de turmas</a>
                         </li>
 
 
@@ -78,58 +81,6 @@ include_once('common/connection.php');
                     <div id="nav-1-1-default-hor-left-underline" class="tab-content">
 
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
-
-                            <div class="g-mb-20">
-                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="edit-turmas.php">Criar Turma</a>
-                            </div>
-                            <div class="table-responsive" >
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Número da Turma</th>
-                                        <th>Ano</th>
-                                        <th>Nome</th>
-                                        <th>Etapa</th>
-                                        <th>Módulo</th>
-                                        <th>Dia da Semana</th>
-                                        <th>Turno</th>
-                                        <th>Horário</th>
-                                        <th>Sala</th>
-                                        <th>Status</th>
-                                        <th>Catequistas</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <tr>
-                                        <td><a href="edit-turmas.php">1</a></td>
-                                        <td>2018</td>
-                                        <td>Turma 1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>Segunda-Feira</td>
-                                        <td>Manhã</td>
-                                        <td>10:00</td>
-                                        <td>Sala 3</td>
-                                        <td>Ativa</td>
-                                        <td>João, Paulo, Mateus</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="edit-turmas.php">2</a></td>
-                                        <td>2017</td>
-                                        <td>Turma 2</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                        <td>Segunda-Feira</td>
-                                        <td>Tarde</td>
-                                        <td>14:00</td>
-                                        <td>Sala 2</td>
-                                        <td>Ativa</td>
-                                        <td>João, Paulo, Mateus</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
 
 
