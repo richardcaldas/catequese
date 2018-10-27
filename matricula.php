@@ -7,7 +7,7 @@ include_once('common/connection.php');
 <?php include 'head.php';?>
 <head>
     <!-- Title -->
-    <title>Criação de Turma</title>
+    <title>Matrícula</title>
 
 </head>
 
@@ -23,11 +23,11 @@ include_once('common/connection.php');
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-turmas.php">Lista de Turmas</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-alunos.php">Lista de Alunos</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="">Criação de Turma</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="matricula.php">Matrícula</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
             </ul>
@@ -46,8 +46,8 @@ include_once('common/connection.php');
                             <!--  <span class="u-label g-font-size-11 g-bg-gray-dark-v2 g-rounded-20 g-px-10">2</span>-->
                         </a>
 
-                        <a href="rematricula.php" class="list-group-item list-group-item-action justify-content-between">
-                            <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Rematricula</span>
+                        <a href="lista-alunos.php" class="list-group-item list-group-item-action justify-content-between">
+                            <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Catequizandos</span>
                         </a>
 
                         <a href="lista-turmas.php" class="list-group-item list-group-item-action justify-content-between">
@@ -159,14 +159,14 @@ include_once('common/connection.php');
                                 </div>
                             </div>
 
-                            </div>
                         </div>
-
                     </div>
-                    <!-- End Tab panes -->
+
                 </div>
-                <!-- End Profle Content -->
+                <!-- End Tab panes -->
             </div>
+            <!-- End Profle Content -->
+        </div>
         </div>
     </section>
 
@@ -175,9 +175,7 @@ include_once('common/connection.php');
     <script>
 
         $(document).on('ready', function () {
-
             setActiveMenu();
-
         });
 
     </script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <body>
+        <script>
+
+            function setActiveMenu(){
+                let links = document.getElementsByTagName('a');
+                for (let i = 0; i < links.length; i++){
+                    let url = window.location.protocol + '//' +  window.location.hostname + window.location.pathname
+                    if (url === links[i].href){
+                        links[i].classList.add('active')
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>

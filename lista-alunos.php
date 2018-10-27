@@ -24,7 +24,7 @@ include_once('common/connection.php');
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-turmas.php">Turmas</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-alunos.php">Alunos</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
             </ul>
@@ -43,11 +43,11 @@ include_once('common/connection.php');
                             <!--  <span class="u-label g-font-size-11 g-bg-gray-dark-v2 g-rounded-20 g-px-10">2</span>-->
                         </a>
 
-                        <a href="rematricula.php" class="list-group-item list-group-item-action justify-content-between">
-                            <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Rematricula</span>
+                        <a href="lista-alunos.php" class="list-group-item list-group-item-action justify-content-between">
+                            <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Catequizandos</span>
                         </a>
 
-                        <a href="lista-turmas.php" class="list-group-item list-group-item-action justify-content-between">
+                        <a href="lista-turmas.php" class="list-group-item list-group-item-action justify-content-between ">
                             <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Turmas</span>
                         </a>
 
@@ -66,7 +66,7 @@ include_once('common/connection.php');
                     <!-- Nav tabs -->
                     <ul class="nav nav-justified u-nav-v1-1 u-nav-primary g-brd-bottom--md g-brd-bottom-2 g-brd-primary g-mb-20" role="tablist" data-target="nav-1-1-default-hor-left-underline" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-primary g-mb-20">
                         <li class="nav-item">
-                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Visualização de Turmas</a>
+                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Visualização do Alunos</a>
                         </li>
 
 
@@ -79,7 +79,7 @@ include_once('common/connection.php');
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
 
                             <div class="g-mb-20">
-                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="edit-turmas.php">Criar Turma</a>
+                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="matricula.php">Matricular Catequizando</a>
                             </div>
                             <div class="table-responsive" >
                                 <table id="tableClasses" class="table table-striped table-bordered table-hover">
@@ -145,8 +145,6 @@ include_once('common/connection.php');
     <script>
 
         $(document).ready( function () {
-
-
             setActiveMenu();
 
             $('#tableClasses').DataTable({
@@ -157,10 +155,10 @@ include_once('common/connection.php');
                     {extend: 'excel', title: 'Controller',  exportOptions: { columns: "thead th:not(.noExport)" }},
                     {extend: 'pdf', title: 'Controller',  exportOptions:{ columns: "thead th:not(.noExport)" }},
                     {extend: 'print', customize: function (win){
-                        $(win.document.body).addClass('white-bg');
-                        $(win.document.body).css('font-size', '10px');
-                        $(win.document.body).find('table').addClass('compact').css('font-size', 'inherit');
-                    }}, 'colvis'
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+                            $(win.document.body).find('table').addClass('compact').css('font-size', 'inherit');
+                        }}, 'colvis'
                 ],
                 "order" : [ [ 1, 'desc' ] ],
                 "columnDefs" : [ { "orderable" : false, "targets" : 0}],

@@ -1,7 +1,7 @@
 <?php include_once("common/start_session.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.html';?>
+<?php include 'head.php';?>
 <head>
   <!-- Title -->
   <title>Catequese São Dimas</title>

@@ -3,12 +3,12 @@
   require_once('common/connection.php');
   
   if(isset ($_SESSION["idResponsavel"])){
-    header('location:rematricula.php'); 
+    header('location:lista-alunos.php');
   }
   
   $logged=false;
   if(isset($_POST["email"])){
-    $url = "rematricula.php";
+    $url = "lista-alunos.php";
     if (!empty($_POST["path"])) {
       $url = $_POST["path"];
     }
@@ -39,7 +39,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.html';?>
+<?php include 'head.php';?>
 <head>
   <!-- Title -->
   <title>Catequese São Dimas - Login Page </title>
@@ -77,10 +77,10 @@
                   <button class="btn btn-md btn-block u-btn-primary rounded g-py-13" type="submit">Entrar</button>
                 </div>
               </form>
-              <footer class="text-center">
+<!--              <footer class="text-center">
                 <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">Ainda não é membro? <a class="g-font-weight-600" href="cadastro.html">Cadastre-se</a>
                 </p>
-              </footer>
+              </footer>-->
             </div>
           </div>
         </div>
