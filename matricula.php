@@ -45,7 +45,7 @@ include_once('common/connection.php');
                     <!-- Nav tabs -->
                     <ul class="nav nav-justified u-nav-v1-1 u-nav-primary g-brd-bottom--md g-brd-bottom-2 g-brd-primary g-mb-20" role="tablist" data-target="nav-1-1-default-hor-left-underline" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-primary g-mb-20">
                         <li class="nav-item">
-                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Criação de turmas</a>
+                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Matrícula</a>
                         </li>
 
 
@@ -58,12 +58,7 @@ include_once('common/connection.php');
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
 
 
-                            <div class="row">
-                                <label class="u-check g-pl-15">
-                                    <input class="g-hidden-xs-up " type="checkbox" checked="">
-                                    <span class="btn btn-md btn-block u-btn-outline-lightgray g-color-white--checked g-bg-primary--checked rounded-0">Ativar Turma</span>
-                                </label>
-                            </div>
+
 
                             <div class="row">
                                 <div class="form-group col-lg-6">
@@ -72,40 +67,32 @@ include_once('common/connection.php');
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label class="" for="numeroDaTurma">Número da Turma</label>
-                                    <input type="number" min="1" max="2500" placeholder="Entre com o número da turma" id="numeroDaTurma" class="form-control form-control-md rounded-0"/>
+                                    <label class="" for="dataNascimento">Data de Nascimento</label>
+                                    <input type="date" placeholder="" id="dataNascimento" class="form-control form-control-md rounded-0"/>
                                 </div>
 
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-lg-4">
-                                    <label class="" for="ano">Ano</label>
-                                    <input type="number" min="1900" max="2500" value="<?php echo date("Y"); ?>" id="ano" class="form-control form-control-md rounded-0"/>
+                                    <label class="" for="cidadeNatal">Cidade Natal</label>
+                                    <input type="text" id="cidadeNatal" class="form-control form-control-md rounded-0"/>
                                 </div>
                                 <div class="form-group col-lg-4">
-                                    <label class="" for="etapa">Etapa</label>
-                                    <input type="number"  min="1" max="3" id="etapa" class="form-control form-control-md rounded-0"/>
+                                    <label class="" for="estadoNatal">Estado Natal</label>
+                                    <input type="text" id="estadoNatal" class="form-control form-control-md rounded-0"/>
                                 </div>
 
                                 <div class="form-group col-lg-4">
-                                    <label class="" for="modulo">Modulo</label>
-                                    <input type="number"  min="1" max="3" id="modulo" class="form-control form-control-md rounded-0"/>
+                                    <label class="" for="endereco">Endereço</label>
+                                    <input type="text"  id="endereco" class="form-control form-control-md rounded-0"/>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="form-group col-lg-4">
-                                    <label class="" for="diaDaSemana">Dia da Semana</label>
-                                    <select  id="diaDaSemana" class="form-control form-control-md rounded-0 ">
-                                        <option value="2" >Segunda-feira</option>
-                                        <option value="3">Terça-feira</option>
-                                        <option value="4">Quarta-feira</option>
-                                        <option value="5">Quinta-feira</option>
-                                        <option value="6">Sexta-eira</option>
-                                        <option value="7">Sábado</option>
-                                        <option value="1">Domingo</option>
-                                    </select>
+                                    <label class="" for="bairro">Bairro</label>
+                                    <input type="text" id="bairro" class="form-control form-control-md rounded-0 "/>
                                 </div>
                                 <div class="form-group col-lg-4">
                                     <label class="" for="turno">Período</label>

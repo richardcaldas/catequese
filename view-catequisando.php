@@ -6,8 +6,6 @@ include_once('common/connection.php');
       $sql .= "left join responsavel p on p.id = c.id_pai ";
       $sql .= "left join responsavel m on m.id = c.id_mae ";
       $sql .= "where c.ID = ".$_GET['id'];	
-
-      echo $sql;
       
       $query = mysqli_query($connection, $sql);
       $row = mysqli_fetch_assoc($query);
@@ -120,7 +118,7 @@ include_once('common/connection.php');
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    Viualização
+                    Visualização
                 </li>
             </ul>
         </div>
@@ -131,8 +129,7 @@ include_once('common/connection.php');
     <section class="container g-pb-30">
       <div class="row">
         <div class="col-md-12 g-mb-30">
-          <h2 class="h4 g-font-weight-700 text-uppercase text-center">COMISSÃO DIOCESANA PARA ANIMAÇÃO BÍBLICO-CATEQUÉTICA
-</h2>
+          <h2 class="h4 g-font-weight-700 text-uppercase text-center">COMISSÃO DIOCESANA PARA ANIMAÇÃO BÍBLICO-CATEQUÉTICA</h2>
           <h5 class="text-uppercase text-center">DIOCESE DE SÃO JOSÉ DOS CAMPOS</h5>
         </div>
 
@@ -232,7 +229,7 @@ echo strftime('%d de %B de %Y', strtotime('today')); ?>	</span>
 
         <div class="col-md-7 col-lg-4 align-self-center g-mb-30">
           <div class="text-right">
-            <button class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 mr-2" type="button" onclick="javascript:window.print();">
+            <button class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 pull-right" type="button" onclick="javascript:window.print();">
               <i class="g-pos-rel g-top-1 mr-2 icon-education-082 u-line-icon-pro"></i>
               Imprimir
             </button>
@@ -261,7 +258,6 @@ echo strftime('%d de %B de %Y', strtotime('today')); ?>	</span>
 </body>
 
 
-<!-- Mirrored from htmlstream.com/preview/unify-v2.6/unify-main/pages/page-invoice-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Sep 2018 22:37:44 GMT -->
 </html>
 <?php }else{
 		echo "Ocorreu um erro na pagina. Favor em contrato com o suporte.";

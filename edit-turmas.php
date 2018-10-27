@@ -60,7 +60,7 @@ include_once('common/connection.php');
 
                             <div class="row">
                                 <label class="u-check g-pl-15">
-                                    <input class="g-hidden-xs-up " type="checkbox" checked="">
+                                    <input class="g-hidden-xs-up " type="checkbox">
                                     <span class="btn btn-md btn-block u-btn-outline-lightgray g-color-white--checked g-bg-primary--checked rounded-0">Ativar Turma</span>
                                 </label>
                             </div>
