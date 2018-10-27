@@ -33,7 +33,7 @@ include_once('common/connection.php');
     <!-- End Breadcrumb -->
 
     <section class="g-mb-100">
-        <div class="container" style="max-width: 1500px">
+        <div class="container" style="max-width: 1600px">
             <div class="row">
                 <?php include 'menu.php';?>
 
