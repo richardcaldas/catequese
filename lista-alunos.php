@@ -33,7 +33,7 @@ include_once('common/connection.php');
     <!-- End Breadcrumb -->
 
     <section class="g-mb-100">
-        <div class="container" style="max-width: 1500px">
+        <div class="container" style="max-width: 1600px">
             <div class="row">
                 <?php include 'menu.php';?>
 
@@ -55,52 +55,44 @@ include_once('common/connection.php');
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
 
                             <div class="g-mb-20">
-                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="matricula.php">Matricular Catequizando</a>
+                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="matricula.php"> <i class="fas fa-lg fa-plus"></i> Matricular Catequizando </a>
                             </div>
                             <div class="table-responsive" >
                                 <table id="tableClasses" class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Número da Turma</th>
-                                        <th>Ano</th>
+                                        <th>Ações</th>
                                         <th>Nome</th>
-                                        <th>Etapa</th>
-                                        <th>Módulo</th>
-                                        <th>Dia da Semana</th>
-                                        <th>Turno</th>
-                                        <th>Horário</th>
-                                        <th>Sala</th>
-                                        <th>Status</th>
-                                        <th>Catequistas</th>
+                                        <th>Data de Nascimento</th>
+                                        <th>Responsável</th>
+                                        <th>Telefone Celular</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
                                     <tr>
-                                        <td><a href="edit-turmas.php">1</a></td>
-                                        <td>2018</td>
-                                        <td>Turma 1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>Segunda-Feira</td>
-                                        <td>Manhã</td>
-                                        <td>10:00</td>
-                                        <td>Sala 3</td>
-                                        <td>Ativa</td>
-                                        <td>João, Paulo, Mateus</td>
+                                        <td>
+                                            <a href="view-aluno.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                            <a href="edit-aluno.php" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
+                                            <a href="rematricula.php" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
+                                            <a href="remover-aluno.php" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                        </td>
+                                        <td>John Doe Filho</td>
+                                        <td>22/07/2010</td>
+                                        <td>John Doe</td>
+                                        <td>55 19 987654987</td>
                                     </tr>
                                     <tr>
-                                        <td><a href="edit-turmas.php">2</a></td>
-                                        <td>2017</td>
-                                        <td>Turma 2</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                        <td>Segunda-Feira</td>
-                                        <td>Tarde</td>
-                                        <td>14:00</td>
-                                        <td>Sala 2</td>
-                                        <td>Ativa</td>
-                                        <td>João, Paulo, Mateus</td>
+                                        <td>
+                                            <a href="view-aluno.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                            <a href="edit-aluno.php" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
+                                            <a href="rematricula.php" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
+                                            <a href="remover-aluno.php" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                        </td>
+                                        <td>Joahna Doe</td>
+                                        <td>22/04/2012</td>
+                                        <td>Sue Doe</td>
+                                        <td>55 19 123456789</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -136,7 +128,7 @@ include_once('common/connection.php');
                             $(win.document.body).find('table').addClass('compact').css('font-size', 'inherit');
                         }}, 'colvis'
                 ],
-                "order" : [ [ 1, 'desc' ] ],
+                "order" : [ [ 1, 'asc' ] ],
                 "columnDefs" : [ { "orderable" : false, "targets" : 0}],
                 "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
                 "initComplete": function() {
