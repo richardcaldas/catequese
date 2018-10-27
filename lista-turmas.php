@@ -58,7 +58,6 @@ include_once('common/connection.php');
                         </a>"
                         ?>
 
-
                     </div>
                 </div>
 
@@ -83,7 +82,7 @@ include_once('common/connection.php');
                                 <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="edit-turmas.php">Criar Turma</a>
                             </div>
                             <div class="table-responsive" >
-                                <table class="table table-striped table-bordered table-hover">
+                                <table id="tableClasses" class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
                                         <th>Número da Turma</th>
@@ -131,8 +130,6 @@ include_once('common/connection.php');
                                 </table>
                             </div>
 
-
-
                         </div>
 
                     </div>
@@ -146,6 +143,30 @@ include_once('common/connection.php');
     <?php include 'footer.html';?>
 
     <script>
+
+        $(document).ready( function () {
+            $('#tableClasses').DataTable({
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    {extend: 'copy',  exportOptions: { columns: "thead th:not(.noExport)" }},
+                    {extend: 'csv',  exportOptions: { columns: "thead th:not(.noExport)" }},
+                    {extend: 'excel', title: 'Controller',  exportOptions: { columns: "thead th:not(.noExport)" }},
+                    {extend: 'pdf', title: 'Controller',  exportOptions:{ columns: "thead th:not(.noExport)" }},
+                    {extend: 'print', customize: function (win){
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
+                        $(win.document.body).find('table').addClass('compact').css('font-size', 'inherit');
+                    }}, 'colvis'
+                ],
+                "order" : [ [ 1, 'desc' ] ],
+                "columnDefs" : [ { "orderable" : false, "targets" : 0}],
+                "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
+                "initComplete": function() {
+
+                }
+
+            });
+        } );
 
     </script>
 
