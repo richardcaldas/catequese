@@ -62,8 +62,8 @@ include_once('common/connection.php');
                                         <span class="align-top">John Doe Filho</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Name -->
 
@@ -86,8 +86,8 @@ include_once('common/connection.php');
                                         <span class="align-top">John Doe Pai</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Company Name -->
 
@@ -98,8 +98,8 @@ include_once('common/connection.php');
                                         <span class="align-top">Joahna Doe</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Position -->
 
@@ -110,8 +110,8 @@ include_once('common/connection.php');
                                         <span class="align-top">john.doe@uol.com.br</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Primary Email Address -->
 
@@ -122,8 +122,8 @@ include_once('common/connection.php');
                                         <span class="align-top">(+55) 12 3456 7890</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Phone Number -->
 
@@ -134,8 +134,8 @@ include_once('common/connection.php');
                                         <span class="align-top">(+55) 12 99456 7891</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Office Number -->
 
@@ -146,8 +146,8 @@ include_once('common/connection.php');
                                         <span class="align-top">Avenida Cidade Jardim, 600, Jardim Satélite, São José dos Campos - SP</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Address -->
                                 <!-- Address -->
@@ -157,8 +157,8 @@ include_once('common/connection.php');
                                         <span class="align-top">Turma 03</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Address -->
                                 <!-- Address -->
@@ -168,8 +168,8 @@ include_once('common/connection.php');
                                         <span class="align-top">Sábado (10h - 12h)</span>
                                     </div>
                                     <span>
-                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                      </span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
                                 </li>
                                 <!-- End Address -->
                             </ul>

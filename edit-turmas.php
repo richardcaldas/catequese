@@ -38,32 +38,7 @@ include_once('common/connection.php');
     <section class="g-mb-100">
         <div class="container" style="max-width: 1500px">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="list-group list-group-border-0 g-mb-40">
-
-                        <a href="index.php" class="list-group-item list-group-item-action justify-content-between">
-                            <span><i class="icon-home g-pos-rel g-top-1 g-mr-8"></i> Home</span>
-                            <!--  <span class="u-label g-font-size-11 g-bg-gray-dark-v2 g-rounded-20 g-px-10">2</span>-->
-                        </a>
-
-                        <a href="rematricula.php" class="list-group-item list-group-item-action justify-content-between">
-                            <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Rematricula</span>
-                        </a>
-
-                        <a href="lista-turmas.php" class="list-group-item list-group-item-action justify-content-between">
-                            <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Turmas</span>
-                        </a>
-
-
-                        <?php echo " <a href='functions/logout.php?token=".md5(session_id())."' 
-                        class='list-group-item list-group-item-action justify-content-between'>
-                        <span><i class='icon-notebook g-pos-rel g-top-1 g-mr-8'></i> Logout</span>
-                        </a>"
-                        ?>
-
-
-                    </div>
-                </div>
+                <?php include 'menu.php';?>
 
                 <!-- Profle Content -->
                 <div class="col-lg-9">
@@ -167,7 +142,7 @@ include_once('common/connection.php');
                 </div>
                 <!-- End Profle Content -->
             </div>
-        </div>
+
     </section>
 
     <?php include 'footer.html';?>
