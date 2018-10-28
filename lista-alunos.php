@@ -72,7 +72,7 @@ include_once('common/connection.php');
                                     <tbody>
                                     <tr>
                                         <td>
-                                            <a href="view-aluno.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                            <a href="view-catequizando.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
                                             <a href="edit-aluno.php" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
                                             <a href="rematricula.php" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
                                             <a href="remover-aluno.php" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
@@ -84,7 +84,7 @@ include_once('common/connection.php');
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="view-aluno.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                            <a href="view-catequizando.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
                                             <a href="edit-aluno.php" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
                                             <a href="rematricula.php" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
                                             <a href="remover-aluno.php" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
