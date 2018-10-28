@@ -2,7 +2,8 @@
 include_once('common/connection.php');
 include_once('functions/functions.php');
 
-      $sql =  "select c.* ";
+      $sql =  "select c.*, DATE_FORMAT(c.data_nascimento, '%d/%m/%Y') as data_nascimento_formatted, ";
+      $sql .= "DATE_FORMAT(c.data_batismo, '%d/%m/%Y') as data_batismo_formatted ";
       $sql .= "from catequizando c ";
       $sql .= "where c.ID = ".$_GET['id'];	
       
@@ -165,7 +166,7 @@ include_once('functions/functions.php');
           <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">Dados do Catequisando</h3>
           <ul class="list-unstyled g-font-size-default">
             <li><span class="g-font-weight-700">Nome:</span> <?php echo $row['nome']; ?></li>
-            <li><span class="g-font-weight-700">Data de Nascimento:</span> <?php echo $row['data_nascimento']; ?></li>
+            <li><span class="g-font-weight-700">Data de Nascimento:</span> <?php echo $row['data_nascimento_formatted']; ?></li>
             <li><span class="g-font-weight-700">Endereço:</span> <?php echo $row['endereco']; ?></li>
             <li><span class="g-font-weight-700">Bairro:</span> <?php echo $row['bairro']; ?></li>
             <li><span class="g-font-weight-700">Cidade :</span> <?php echo $row['cidade']; ?></li>
@@ -182,7 +183,7 @@ include_once('functions/functions.php');
             <li><span class="g-font-weight-700">Escola:</span> <?php echo $row['escola']; ?></li>
             <li><span class="g-font-weight-700">Série:</span> <?php echo $row['ano_curso']; ?></li>
             <li><span class="g-font-weight-700">Período:</span> <?php echo $row['periodo']; ?></li>
-            <li><span class="g-font-weight-700">Foi Batizado em:</span> <?php echo $row['data_batismo']; ?></li>
+            <li><span class="g-font-weight-700">Foi Batizado em:</span> <?php echo $row['data_batismo_formatted']; ?></li>
             <li><span class="g-font-weight-700">Paróquia em que foi batizado:</span> <?php echo $row['paroquia_batismo']; ?></li>
             <li><span class="g-font-weight-700">Cidade/Estado:</span> <?php echo $row['cidade_paroquia']; ?> / <?php echo $row['estado_paroquia']; ?></li>
           </ul>
