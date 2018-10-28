@@ -1,14 +1,42 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
+include_once('functions/functions.php');
 
-      $sql =  "select c.*";
+      $sql =  "select c.* ";
       $sql .= "from catequizando c ";
-      $sql .= "left join responsavel p on p.id = c.id_pai ";
-      $sql .= "left join responsavel m on m.id = c.id_mae ";
       $sql .= "where c.ID = ".$_GET['id'];	
       
       $query = mysqli_query($connection, $sql);
       $row = mysqli_fetch_assoc($query);
+
+      if (isset($row['id_pai'])){
+        $sqlPai =  "select c.* ";
+        $sqlPai .= "from responsavel c ";
+        $sqlPai .= "where c.ID = " .$row['id_pai'];
+        
+        $queryPai = mysqli_query($connection, $sqlPai);
+        $rowPai = mysqli_fetch_assoc($queryPai);
+        
+      }
+
+      if (isset($row['id_mae'])){
+        $sqlMae =  "select c.* ";
+        $sqlMae .= "from responsavel c ";
+        $sqlMae .= "where c.ID = " .$row['id_mae'];
+        
+        $queryMae = mysqli_query($connection, $sqlMae);
+        $rowMae = mysqli_fetch_assoc($queryMae);
+        
+      }
+
+      $sqlTurma =  "select t.* ";
+      $sqlTurma .= "from catequizando_has_turma c ";
+      $sqlTurma .= "inner join turma t on t.id = c.turma_id ";
+      $sqlTurma .= "where c.ativo =1 and c.catequizando_id = ".$_GET['id'];	
+      
+      $queryTurma = mysqli_query($connection, $sqlTurma);
+      $rowTurma = mysqli_fetch_assoc($queryTurma);
+
 
       if (isset($_GET["id"])){
 
@@ -164,23 +192,23 @@ include_once('common/connection.php');
           <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">dados da familia</h3>
           <h3 class="h6 g-color-black g-font-weight-600 text-uppercase"> Pai</h3>
           <ul class="list-unstyled g-font-size-default">
-            <li><span class="g-font-weight-700">Nome:</span> Antonio carlos nunces caldas</li>
-            <li><span class="g-font-weight-700">Celular:</span> (12) 1111-2222</li>
-            <li><span class="g-font-weight-700">Local de Trabalho:</span> Antonio carlos nunces caldas</li>
-            <li><span class="g-font-weight-700">Profissão</span> 2</li>
-            <li><span class="g-font-weight-700">Telefone Comercial:</span> (12) 2222-2222</li>
-            <li><span class="g-font-weight-700">Católico?</span> 01/01/2019</li>
-            <li><span class="g-font-weight-700">Praticante?</span> Nome da paróquia</li>
-            <li><span class="g-font-weight-700">Batizado?</span> São jose dos campos / SP</li>
-            <li><span class="g-font-weight-700">Crismado?</span> Sim</li>
-            <li><span class="g-font-weight-700">Casado na Igreja?</span> Sim</li>
-            <li><span class="g-font-weight-700">Outro credo religioso? Qual?</span> Sim, dsdsdsd</li>
-            <li><span class="g-font-weight-700">São separados?</span> Não</li>
-            <li><span class="g-font-weight-700">Estão em segunda união?</span> Não</li>
-            <li><span class="g-font-weight-700">São dizimistas?</span> Não</li>
-            <li><span class="g-font-weight-700">Participa de Pastoral ou Movimento religioso nesta paróquia?</span> Não</li>
-            <li><span class="g-font-weight-700">Qual?</span> Não</li>
-            <li><span class="g-font-weight-700">Gostaria de Participar?</span> Não</li>
+            <li><span class="g-font-weight-700">Nome:</span> <?php echo $rowPai['nome']; ?></li>
+            <li><span class="g-font-weight-700">Celular:</span> <?php echo $rowPai['tel_celular']; ?></li>
+            <li><span class="g-font-weight-700">Local de Trabalho:</span> <?php echo $rowPai['local_trabalho']; ?></li>
+            <li><span class="g-font-weight-700">Profissão</span> <?php echo $rowPai['profissao']; ?></li>
+            <li><span class="g-font-weight-700">Telefone Comercial:</span> <?php echo $rowPai['tel_comercial']; ?></li>
+            <li><span class="g-font-weight-700">Católico?</span> <?php echo showBoolean($rowPai['is_catolico']); ?></li>
+            <li><span class="g-font-weight-700">Praticante?</span> <?php echo showBoolean($rowPai['is_praticante']); ?></li>
+            <li><span class="g-font-weight-700">Batizado?</span> <?php echo showBoolean($rowPai['is_batizado']); ?></li>
+            <li><span class="g-font-weight-700">Crismado?</span> <?php echo showBoolean($rowPai['is_crismado']); ?></li>
+            <li><span class="g-font-weight-700">Casado na Igreja?</span> <?php echo showBoolean($rowPai['is_casado_na_igreja']); ?></li>
+            <li><span class="g-font-weight-700">Outro credo religioso? Qual?</span> <?php echo showBoolean($rowPai['is_outro_credo_religioso']); ?> <?php echo $rowPai['nome_credo_religioso']; ?></li>
+            <li><span class="g-font-weight-700">São separados?</span> <?php echo showBoolean($rowPai['is_separado']); ?></li>
+            <li><span class="g-font-weight-700">Estão em segunda união?</span> <?php echo showBoolean($rowPai['is_segunda_uniao']); ?></li>
+            <li><span class="g-font-weight-700">São dizimistas?</span> <?php echo showBoolean($rowPai['is_dizimista']); ?></li>
+            <li><span class="g-font-weight-700">Participa de Pastoral ou Movimento religioso nesta paróquia?</span> <?php echo showBoolean($rowPai['is_participante_movimento_paroquia']); ?></li>
+            <li><span class="g-font-weight-700">Qual?</span> <?php echo $rowPai['qual_movimento']; ?></li>
+            <li><span class="g-font-weight-700">Gostaria de Participar?</span> <?php echo showBoolean($rowPai['is_gostaria_participar']); ?></li>
           </ul>
         </div>
 
@@ -188,23 +216,37 @@ include_once('common/connection.php');
           <h3 class="h5 g-color-black g-font-weight-600 text-uppercase"><br></h3>
           <h3 class="h6 g-color-black g-font-weight-600 text-uppercase"> Mãe</h3>
           <ul class="list-unstyled g-font-size-default">
-            <li><span class="g-font-weight-700">Nome:</span> Antonio carlos nunces caldas</li>
-            <li><span class="g-font-weight-700">Celular:</span> (12) 1111-2222</li>
-            <li><span class="g-font-weight-700">Local de Trabalho:</span> Antonio carlos nunces caldas</li>
-            <li><span class="g-font-weight-700">Profissão</span> 2</li>
-            <li><span class="g-font-weight-700">Telefone Comercial:</span> (12) 2222-2222</li>
-            <li><span class="g-font-weight-700">Católico?</span> 01/01/2019</li>
-            <li><span class="g-font-weight-700">Praticante?</span> Nome da paróquia</li>
-            <li><span class="g-font-weight-700">Batizado?</span> São jose dos campos / SP</li>
-            <li><span class="g-font-weight-700">Crismado?</span> Sim</li>
-            <li><span class="g-font-weight-700">Casado na Igreja?</span> Sim</li>
-            <li><span class="g-font-weight-700">Outro credo religioso? Qual?</span> Sim, dsdsdsd</li>
-            <li><span class="g-font-weight-700">São separados?</span> Não</li>
-            <li><span class="g-font-weight-700">Estão em segunda união?</span> Não</li>
-            <li><span class="g-font-weight-700">São dizimistas?</span> Não</li>
-            <li><span class="g-font-weight-700">Participa de Pastoral ou Movimento religioso nesta paróquia?</span> Não</li>
-            <li><span class="g-font-weight-700">Qual?</span> Não</li>
-            <li><span class="g-font-weight-700">Gostaria de Participar?</span> Não</li>
+          <li><span class="g-font-weight-700">Nome:</span> <?php echo $rowMae['nome']; ?></li>
+            <li><span class="g-font-weight-700">Celular:</span> <?php echo $rowMae['tel_celular']; ?></li>
+            <li><span class="g-font-weight-700">Local de Trabalho:</span> <?php echo $rowMae['local_trabalho']; ?></li>
+            <li><span class="g-font-weight-700">Profissão</span> <?php echo $rowMae['profissao']; ?></li>
+            <li><span class="g-font-weight-700">Telefone Comercial:</span> <?php echo $rowMae['tel_comercial']; ?></li>
+            <li><span class="g-font-weight-700">Católico?</span> <?php echo showBoolean($rowMae['is_catolico']); ?></li>
+            <li><span class="g-font-weight-700">Praticante?</span> <?php echo showBoolean($rowMae['is_praticante']); ?></li>
+            <li><span class="g-font-weight-700">Batizado?</span> <?php echo showBoolean($rowMae['is_batizado']); ?></li>
+            <li><span class="g-font-weight-700">Crismado?</span> <?php echo showBoolean($rowMae['is_crismado']); ?></li>
+            <li><span class="g-font-weight-700">Casado na Igreja?</span> <?php echo showBoolean($rowMae['is_casado_na_igreja']); ?></li>
+            <li><span class="g-font-weight-700">Outro credo religioso? Qual?</span> <?php echo showBoolean($rowMae['is_outro_credo_religioso']); ?> <?php echo $rowMae['nome_credo_religioso']; ?></li>
+            <li><span class="g-font-weight-700">São separados?</span> <?php echo showBoolean($rowMae['is_separado']); ?></li>
+            <li><span class="g-font-weight-700">Estão em segunda união?</span> <?php echo showBoolean($rowMae['is_segunda_uniao']); ?></li>
+            <li><span class="g-font-weight-700">São dizimistas?</span> <?php echo showBoolean($rowMae['is_dizimista']); ?></li>
+            <li><span class="g-font-weight-700">Participa de Pastoral ou Movimento religioso nesta paróquia?</span> <?php echo showBoolean($rowMae['is_participante_movimento_paroquia']); ?></li>
+            <li><span class="g-font-weight-700">Qual?</span> <?php echo $rowMae['qual_movimento']; ?></li>
+            <li><span class="g-font-weight-700">Gostaria de Participar?</span> <?php echo showBoolean($rowMae['is_gostaria_participar']); ?></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 g-mb-30">
+          <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">TURMA</h3>
+          <ul class="list-unstyled g-font-size-default">
+            <li><span class="g-font-weight-700">Turma:</span> <?php echo $rowTurma['nome']; ?></li>
+            <li><span class="g-font-weight-700">Ano:</span> <?php echo $rowTurma['ano']; ?></li>
+            <li><span class="g-font-weight-700">Etapa:</span> <?php echo $rowTurma['etapa']; ?></li>
+            <li><span class="g-font-weight-700">Módulo</span> <?php echo $rowTurma['modulo']; ?></li>
+            <li><span class="g-font-weight-700">Dia:</span> <?php echo $rowTurma['dia_semana']; ?></li>
+            <li><span class="g-font-weight-700">Turno</span> <?php echo $rowTurma['turno']; ?></li>
+            <li><span class="g-font-weight-700">Horário</span> <?php echo $rowTurma['horario']; ?></li>
+            <li><span class="g-font-weight-700">Sala</span> <?php echo $rowTurma['sala']; ?></li>
           </ul>
         </div>
 
@@ -260,6 +302,6 @@ echo strftime('%d de %B de %Y', strtotime('today')); ?>	</span>
 
 </html>
 <?php }else{
-		echo "Ocorreu um erro na pagina. Favor em contrato com o suporte.";
+		echo "Ocorreu um erro na pagina. Favor entrar em contrato com o suporte.";
 	}
  ?>
