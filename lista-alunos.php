@@ -1,7 +1,8 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
 
-$sql =  "SELECT catequizando.nome as nomeCatequizando, ";
+$sql =  "SELECT catequizando.id as id, ";
+$sql .= " catequizando.nome as nomeCatequizando, ";
 $sql .=	" catequizando.data_nascimento as nascimentoCatequizando," ;
 $sql .=	" responsavel.nome as nomeResponsavel," ;
 $sql .=	" responsavel.email as emailResponsavel, ";
