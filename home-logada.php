@@ -28,30 +28,7 @@
     <section class="g-mb-100">
       <div class="container" style="max-width: 1500px">
         <div class="row">
-          <div class="col-lg-3">
-            <div class="list-group list-group-border-0 g-mb-40">
-              
-              <a href="default.php" class="list-group-item list-group-item-action justify-content-between active">
-                <span><i class="icon-home g-pos-rel g-top-1 g-mr-8"></i> Home</span>
-              </a>
-                            
-              <a href="rematricula.php" class="list-group-item list-group-item-action justify-content-between ">
-                <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Rematricula</span>
-              </a>
-
-              <a href="turmas.php" class="list-group-item list-group-item-action justify-content-between ">
-                <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Turmas</span>
-              </a>
-
-
-              <a href='functions/logout.php?token=".md5(session_id())."' class="list-group-item list-group-item-action justify-content-between ">
-                <span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Logout</span>
-              </a>
-              
-            </div>
-          </div>
-
-
+          <?php include 'menu.php';?>
           <div class="col-lg-9">
 
               <div id="objective" class="u-shadow-v19 g-bg-white rounded g-pa-20">
@@ -71,7 +48,6 @@
                 <div class="d-inline-block g-width-50 g-height-2 g-bg-black mb-3"></div>
                 <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec condimentum suscipit fermentum. Aenean pretium euismod augue nec ornare. Quisque rutrum rhoncus ultrices. Duis efficitur tincidunt arcu vitae elementum. Nunc feugiat id elit eget laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
               </div>
-
             
           </div>
           <!-- End Profle Content -->

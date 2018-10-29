@@ -1,5 +1,16 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
+
+$sql =  "SELECT catequizando.nome as nomeCatequizando, ";
+$sql .=	" catequizando.data_nascimento as nascimentoCatequizando," ;
+$sql .=	" responsavel.nome as nomeResponsavel," ;
+$sql .=	" responsavel.email as emailResponsavel, ";
+$sql .=	" responsavel.tel_celular as telefoneResponsavel";
+$sql .=	" FROM catequizando" ;
+$sql .=	" inner join responsavel on responsavel.id = catequizando.responsavel;";
+
+$query = mysqli_query($connection, $sql);
+
 ?>
 
 
@@ -66,34 +77,28 @@ include_once('common/connection.php');
                                         <th>Data de Nascimento</th>
                                         <th>Responsável</th>
                                         <th>Telefone Celular</th>
+                                        <th>Email</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>
-                                            <a href="view-catequizando.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
-                                            <a href="edit-aluno.php" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                            <a href="rematricula.php" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
-                                            <a href="remover-aluno.php" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
-                                        </td>
-                                        <td>John Doe Filho</td>
-                                        <td>22/07/2010</td>
-                                        <td>John Doe</td>
-                                        <td>55 19 987654987</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="view-catequizando.php" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
-                                            <a href="edit-aluno.php" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                            <a href="rematricula.php" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
-                                            <a href="remover-aluno.php" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
-                                        </td>
-                                        <td>Joahna Doe</td>
-                                        <td>22/04/2012</td>
-                                        <td>Sue Doe</td>
-                                        <td>55 19 123456789</td>
-                                    </tr>
+                                    <?php
+                                        while($row = mysqli_fetch_assoc($query)) {
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <a href="view-catequizando.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                                <a href="edit-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
+                                                <a href="rematricula.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
+                                                <a href="remover-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                            </td>
+                                            <td><?php echo $row["nomeCatequizando"];?></td>
+                                            <td><?php echo $row["nascimentoCatequizando"];?></td>
+                                            <td><?php echo $row["nomeResponsavel"];?></td>
+                                            <td><?php echo $row["telefoneResponsavel"];?></td>
+                                            <td><?php echo $row["emailResponsavel"];?></td>
+                                        </tr>
+                                    <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

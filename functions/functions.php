@@ -16,7 +16,7 @@
 	
 	
 	function sendMail($to, $subject, $message){
-		$header = "From:andre@onnesta.com.br \r\n";
+		$header = "From:catequese@catequeseinfantilsaodimas.com.br \r\n";
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-type: text/html;charset=utf-8 \r\n";
          
