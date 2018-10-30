@@ -8,7 +8,11 @@ $sql .=	" responsavel.nome as nomeResponsavel," ;
 $sql .=	" responsavel.email as emailResponsavel, ";
 $sql .=	" responsavel.tel_celular as telefoneResponsavel";
 $sql .=	" FROM catequizando" ;
-$sql .=	" inner join responsavel on responsavel.id = catequizando.responsavel;";
+$sql .=	" inner join responsavel on responsavel.id = catequizando.responsavel ";
+
+if ($_SESSION["perfil"] == "RESP") {
+    $sql .= "where catequizando.responsavel = ". $_SESSION["idResponsavel"];
+}
 
 $query = mysqli_query($connection, $sql);
 

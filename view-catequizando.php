@@ -184,7 +184,7 @@ include_once('functions/functions.php');
                   </button>
               </div>
               <div class="row g-mt-10">
-                  <a class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 pull-right" type="button" href="lista-alunos.php">
+                  <a class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 pull-right" href="lista-alunos.php">
                       <i class="g-pos-rel g-top-1 mr-2 fas fa-arrow-left"></i>
                       Voltar
                   </a>

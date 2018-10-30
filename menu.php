@@ -1,4 +1,5 @@
 <div class="col-lg-3">
+    <span>Olá, <?php echo $_SESSION["nomeUser"]; ?></span>
     <div class="list-group list-group-border-0 g-mb-40">
 
         <a href="index.php" class="list-group-item list-group-item-action justify-content-between">
@@ -9,11 +10,11 @@
         <a href="lista-alunos.php" class="list-group-item list-group-item-action justify-content-between">
             <span><i class="fas fa-user-graduate fa-2x g-pos-rel g-top-1 g-mr-8"></i> Catequizandos</span>
         </a>
-
-        <a href="lista-turmas.php" class="list-group-item list-group-item-action justify-content-between ">
-            <span><i class="fas fa-users fa-2x g-pos-rel g-top-1 g-mr-8"></i> Turmas</span>
-        </a>
-
+        <?php if ($_SESSION["perfil"] == "ADM") { ?>
+            <a href="lista-turmas.php" class="list-group-item list-group-item-action justify-content-between ">
+                <span><i class="fas fa-users fa-2x g-pos-rel g-top-1 g-mr-8"></i> Turmas</span>
+            </a>
+        <?php } ?>
 
         <?php echo " <a href='functions/logout.php?token=".md5(session_id())."' 
                         class='list-group-item list-group-item-action justify-content-between'>

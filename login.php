@@ -2,7 +2,7 @@
 <?php 
   require_once('common/connection.php');
   
-  if(isset ($_SESSION["idResponsavel"])){
+  if(isset ($_SESSION["idUser"])){
     header('location:lista-alunos.php');
   }
   
@@ -14,22 +14,24 @@
     }
 
     // Monta uma consulta SQL (query) para procurar um usuário
-    //$sql = "SELECT u.id, u.cpf, perfil, c.id as `idCliente`, c.nome as `nomeCliente`, c.email as `mailCliente` FROM `user` u left join clientes c on c.CPF = u.cpf where u.cpf = '".$_POST["cpf"]."' and password = '".$_POST["password"]."'";
-    //$query = mysqli_query($connection, $sql);
+    $sql = "select u.id as user_id, u.nome as user_nome, u.email as email, u.cpf as cpf, u.perfil as perfil, r.id as responsavel_id, r.nome as responsavel_nome ";
+    $sql .= "FROM user u ";
+    $sql .= "left join responsavel r on r.email = u.email ";
+    $sql .= "where u.email = '".$_POST["email"]."' and password = '".$_POST["password"]."'";
+    echo $sql;
+    $query = mysqli_query($connection, $sql);
     
-    //if (mysqli_num_rows($query) > 0){
-      //$result = mysqli_fetch_assoc($query);
+    if (mysqli_num_rows($query) > 0){
+      $result = mysqli_fetch_assoc($query);
       $logged=true;
-      $_SESSION["idResponsavel"] = "1"; //$result["id"];
-      //if ($result["nomeCliente"] != null){
-      // $_SESSION['nomeUserLogged'] = $result["nomeCliente"];   
-      //}else{
-      //  $_SESSION['nomeUserLogged'] = $result["cpf"]; 
-      //}
-      $_SESSION["profileLogged"] = "Admin";//$result["perfil"]; 
-      $_SESSION["nomeResponsavel"] = "Victor";//$result["mailCliente"]; 
+      $_SESSION["idUser"] = $result["user_id"];
+      $_SESSION["nomeUser"] = $result["user_nome"];
+      $_SESSION["email"] = $result["email"];
+      $_SESSION["idResponsavel"] = $result["responsavel_id"];
+      $_SESSION["perfil"] = $result["perfil"]; 
+      $_SESSION["nomeResponsavel"] = $result["responsavel_nome"]; 
       header('location:'.$url); 
-    //}
+    }
      
     
   } 
@@ -60,12 +62,16 @@
 
               <!-- Form -->
               <form class="g-py-15" method="post" action="<?php $_PHP_SELF ?>">
+                <?php if ($logged==false and isset($_POST["email"])){ ?>
+                  <h5 class="text-center text-danger">CPF ou senha incorretos.</h5>
+                <?php } ?>
+
                 <div class="mb-4">
                   <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="email" placeholder="Email" name="email">
                 </div>
 
                 <div class="g-mb-35">
-                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15 mb-3" type="password" placeholder="Senha">
+                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15 mb-3" type="password" placeholder="Senha" name="password">
                   <div class="row justify-content-between">
                     <div class="col align-self-center text-right">
                       <a class="g-font-size-12" href="#!">Esqueceu sua senha?</a>
