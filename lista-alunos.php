@@ -20,7 +20,7 @@ $query = mysqli_query($connection, $sql);
 <?php include 'head.php';?>
 <head>
     <!-- Title -->
-    <title>Visualização de Turmas</title>
+    <title>Visualização de Catequizandos</title>
 
 </head>
 
@@ -36,7 +36,7 @@ $query = mysqli_query($connection, $sql);
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-alunos.php">Alunos</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="lista-alunos.php">Catequizandos</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
             </ul>
@@ -54,7 +54,7 @@ $query = mysqli_query($connection, $sql);
                     <!-- Nav tabs -->
                     <ul class="nav nav-justified u-nav-v1-1 u-nav-primary g-brd-bottom--md g-brd-bottom-2 g-brd-primary g-mb-20" role="tablist" data-target="nav-1-1-default-hor-left-underline" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-primary g-mb-20">
                         <li class="nav-item">
-                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Visualização do Alunos</a>
+                            <a class="nav-link g-py-10 active" data-toggle="tab" href="#nav-1-1-default-hor-left-underline--1" role="tab">Visualização do Catequizandos</a>
                         </li>
 
 
@@ -88,10 +88,10 @@ $query = mysqli_query($connection, $sql);
                                     ?>
                                         <tr>
                                             <td>
-                                                <a href="view-catequizando.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Visualizar informações do Aluno"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
-                                                <a href="edit-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Editar informações do Aluno"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                                <a href="rematricula.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Rematricular Aluno"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
-                                                <a href="remover-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Desmatricular Aluno"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                                <a href="view-catequizando.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Visualizar informações do Catequizando"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                                <a href="edit-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Editar informações do Catequizando"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
+                                                <a href="rematricula.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Rematricular Catequizando"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
+                                                <a href="remover-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Desmatricular Catequizando"><i class="fas fa-lg fa-times g-ml-5"></i></a>
                                             </td>
                                             <td><?php echo $row["nomeCatequizando"];?></td>
                                             <td><?php echo $row["nascimentoCatequizando"];?></td>

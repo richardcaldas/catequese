@@ -52,7 +52,7 @@ include_once('functions/functions.php');
 <?php include 'head.php';?>
 <head>
   <!-- Title -->
-  <title>Visualização de Turmas</title>
+  <title>Visualização de Dados do Catequizando</title>
   <!-- Page Style -->
   <style type="text/css">
     @media print {
@@ -162,6 +162,35 @@ include_once('functions/functions.php');
           <h5 class="text-uppercase text-center">DIOCESE DE SÃO JOSÉ DOS CAMPOS</h5>
         </div>
 
+          <div class="col-md-8 g-mb-30">
+              <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">TURMA</h3>
+              <ul class="list-unstyled g-font-size-default">
+                  <li><span class="g-font-weight-700">Turma:</span> <?php echo $rowTurma['nome']; ?></li>
+                  <li><span class="g-font-weight-700">Ano:</span> <?php echo $rowTurma['ano']; ?></li>
+                  <li><span class="g-font-weight-700">Etapa:</span> <?php echo $rowTurma['etapa']; ?></li>
+                  <li><span class="g-font-weight-700">Módulo</span> <?php echo $rowTurma['modulo']; ?></li>
+                  <li><span class="g-font-weight-700">Dia:</span> <?php echo $rowTurma['dia_semana']; ?></li>
+                  <li><span class="g-font-weight-700">Turno</span> <?php echo $rowTurma['turno']; ?></li>
+                  <li><span class="g-font-weight-700">Horário</span> <?php echo $rowTurma['horario']; ?></li>
+                  <li><span class="g-font-weight-700">Sala</span> <?php echo $rowTurma['sala']; ?></li>
+              </ul>
+          </div>
+
+          <div class="col-lg-4 g-mb-30">
+              <div class="row">
+                  <button class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 pull-right" type="button" onclick="javascript:window.print();">
+                      <i class="g-pos-rel g-top-1 mr-2 icon-education-082 u-line-icon-pro"></i>
+                      Imprimir
+                  </button>
+              </div>
+              <div class="row g-mt-10">
+                  <a class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 pull-right" type="button" href="lista-alunos.php">
+                      <i class="g-pos-rel g-top-1 mr-2 fas fa-arrow-left"></i>
+                      Voltar
+                  </a>
+              </div>
+          </div>
+
         <div class="col-md-6 g-mb-30">
           <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">Dados do Catequisando</h3>
           <ul class="list-unstyled g-font-size-default">
@@ -237,20 +266,6 @@ include_once('functions/functions.php');
           </ul>
         </div>
 
-        <div class="col-md-6 g-mb-30">
-          <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">TURMA</h3>
-          <ul class="list-unstyled g-font-size-default">
-            <li><span class="g-font-weight-700">Turma:</span> <?php echo $rowTurma['nome']; ?></li>
-            <li><span class="g-font-weight-700">Ano:</span> <?php echo $rowTurma['ano']; ?></li>
-            <li><span class="g-font-weight-700">Etapa:</span> <?php echo $rowTurma['etapa']; ?></li>
-            <li><span class="g-font-weight-700">Módulo</span> <?php echo $rowTurma['modulo']; ?></li>
-            <li><span class="g-font-weight-700">Dia:</span> <?php echo $rowTurma['dia_semana']; ?></li>
-            <li><span class="g-font-weight-700">Turno</span> <?php echo $rowTurma['turno']; ?></li>
-            <li><span class="g-font-weight-700">Horário</span> <?php echo $rowTurma['horario']; ?></li>
-            <li><span class="g-font-weight-700">Sala</span> <?php echo $rowTurma['sala']; ?></li>
-          </ul>
-        </div>
-
       </div>
 
       
@@ -262,22 +277,16 @@ include_once('functions/functions.php');
 
       <!-- Total -->
       <div class="row justify-content-between">
-        <div class="col-md-4 align-self-center g-hidden-sm-down g-mb-30">
+        <div class="col-md-10 align-self-center g-hidden-sm-down g-mb-30">
           <ul class="list-unstyled mb-0">
-            <li class="my-1"><span class="g-font-weight-600">SÃO JOSÉ DOS CAMPOS, <?php setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+              <li><h4><b>FAVOR IMPRIMIR A RE-INSCRIÇÃO E LEVAR A TAXA DE CONTRIBUIÇÃO DE R$ 40,00 PARA A COORDENAÇÃO EFETIVAR SUA MATRICULA</b></h4></li>
+                <li class="my-1"><span class="g-font-weight-600">SÃO JOSÉ DOS CAMPOS, <?php setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 echo strftime('%d de %B de %Y', strtotime('today')); ?>	</span>
           </ul>
         </div>
 
-        <div class="col-md-7 col-lg-4 align-self-center g-mb-30">
-          <div class="text-right">
-            <button class="btn btn-md u-btn-darkgray g-font-size-default rounded-0 g-py-10 pull-right" type="button" onclick="javascript:window.print();">
-              <i class="g-pos-rel g-top-1 mr-2 icon-education-082 u-line-icon-pro"></i>
-              Imprimir
-            </button>
-          </div>
-        </div>
+
       </div>
       <!-- End Total -->
     </section>

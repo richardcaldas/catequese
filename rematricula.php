@@ -8,7 +8,7 @@ include_once('common/connection.php');
 <?php include 'head.php';?>
 <head>
     <!-- Title -->
-    <title>Confirmação de dados da Rematrícula</title>
+    <title>Confirmação de dados da Reinscrição</title>
 
 </head>
 
@@ -24,7 +24,7 @@ include_once('common/connection.php');
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7 g-color-primary">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="rematricula.php">Rematrícula</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="rematricula.php">Reinscrição</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
             </ul>
@@ -42,7 +42,7 @@ include_once('common/connection.php');
                     <!-- Nav tabs -->
                     <ul class="nav nav-justified u-nav-v1-1 u-nav-primary g-brd-bottom--md g-brd-bottom-2 g-brd-primary g-mb-20" role="tablist" data-target="nav-1-1-default-hor-left-underline" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-primary g-mb-20">
                         <li class="nav-item">
-                            <a class="nav-link g-py-10 active" data-toggle="tab" role="tab">Confirmação de dados da Rematrícula</a>
+                            <a class="nav-link g-py-10 active" data-toggle="tab" role="tab">Confirmação de dados da Reinscrição</a>
                         </li>
                     </ul>
                     <!-- End Nav tabs -->
@@ -66,7 +66,26 @@ include_once('common/connection.php');
                                     </span>
                                 </li>
                                 <!-- End Name -->
-
+                                <li class="d-flex align-items-center justify-content-between g-brd-bottom g-brd-gray-light-v4 g-py-15">
+                                    <div class="g-pr-10">
+                                        <strong class="d-block d-md-inline-block g-color-gray-dark-v2 g-width-200 g-pr-10">Turma</strong>
+                                        <span class="align-top">Turma 03</span>
+                                    </div>
+                                    <span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
+                                </li>
+                                <!-- End Address -->
+                                <!-- Address -->
+                                <li class="d-flex align-items-center justify-content-between g-brd-bottom g-brd-gray-light-v4 g-py-15">
+                                    <div class="g-pr-10">
+                                        <strong class="d-block d-md-inline-block g-color-gray-dark-v2 g-width-200 g-pr-10">Horário</strong>
+                                        <span class="align-top">Sábado (10h - 12h)</span>
+                                    </div>
+                                    <span>
+                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
+                                    </span>
+                                </li>
                                 <!-- Your ID -->
                                 <li class="d-flex align-items-center justify-content-between g-brd-bottom g-brd-gray-light-v4 g-py-15">
                                     <div class="g-pr-10">
@@ -151,32 +170,12 @@ include_once('common/connection.php');
                                 </li>
                                 <!-- End Address -->
                                 <!-- Address -->
-                                <li class="d-flex align-items-center justify-content-between g-brd-bottom g-brd-gray-light-v4 g-py-15">
-                                    <div class="g-pr-10">
-                                        <strong class="d-block d-md-inline-block g-color-gray-dark-v2 g-width-200 g-pr-10">Turma</strong>
-                                        <span class="align-top">Turma 03</span>
-                                    </div>
-                                    <span>
-                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                                    </span>
-                                </li>
-                                <!-- End Address -->
-                                <!-- Address -->
-                                <li class="d-flex align-items-center justify-content-between g-brd-bottom g-brd-gray-light-v4 g-py-15">
-                                    <div class="g-pr-10">
-                                        <strong class="d-block d-md-inline-block g-color-gray-dark-v2 g-width-200 g-pr-10">Horário</strong>
-                                        <span class="align-top">Sábado (10h - 12h)</span>
-                                    </div>
-                                    <span>
-                                        <i class="icon-pencil g-color-gray-dark-v5 g-color-primary--hover g-cursor-pointer g-pos-rel g-top-1"></i>
-                                    </span>
-                                </li>
+
                                 <!-- End Address -->
                             </ul>
 
                             <div class="text-sm-right">
-                                <a class="btn u-btn-darkgray rounded-0 g-py-12 g-px-25 g-mr-10" href="#!">Cancelar Matrícula</a>
-                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="#!">Confirmar Matrícula</a>
+                                <a class="btn u-btn-primary rounded-0 g-py-12 g-px-25" href="view-catequizando.php?id=1">Confirmar Matrícula</a>
                             </div>
                         </div>
                         <!-- End Edit Profile -->
