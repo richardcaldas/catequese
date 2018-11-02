@@ -94,7 +94,7 @@ $query = mysqli_query($connection, $sql);
                                             <td>
                                                 <!-- <a href="view-turma.php" data-toggle="tooltip" title="Visualizar informações da Turma"><i class="fas fa-lg fa-eye g-ml-5"></i></a> -->
                                                 <a href="edit-turmas.php?id=<?php echo $row['id']; ?>" data-toggle="tooltip" title="Editar informações da Turma"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                                <a href="remover-turma.php" data-toggle="tooltip" title="Remover Turma"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                                <a href="lista-turmas.php?opt=del&id=<?php echo $row['id']; ?>" data-toggle="tooltip" title="Remover Turma"><i class="fas fa-lg fa-times g-ml-5"></i></a>
                                             </td>
                                             <td><?php echo $row['id']; ?></td>
                                             <td><?php echo $row['ano']; ?></td>

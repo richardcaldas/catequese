@@ -2,8 +2,9 @@
 include_once('common/connection.php');
 
 $acao = "Criar";
+$id = 0;
 if (isset($_GET['id'])){
-    
+    $id = $_GET['id'];
     $acao = "Editar";
     
     $sql =  "select * ";
@@ -73,7 +74,7 @@ if (isset($_GET['id'])){
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
 
                             <form method="post" action="<?php $_PHP_SELF ?>">
-                                <input type="hidden" name="hidAcao" id="hidAcao" value="<?php echo $acao; ?>"
+                                <input type="hidden" name="hidId" id="hidId" value="<?php echo $id; ?>">
                                 <div class="row">
                                     <label class="u-check g-pl-15">
                                         <input class="g-hidden-xs-up " type="checkbox">
@@ -189,14 +190,12 @@ if (isset($_GET['id'])){
 
     </script>
 
-
-
     <?php 
         
         date_default_timezone_set("America/Sao_Paulo");
         
         if (isset($_POST['inputNome'])){
-            
+            $id = $_POST['hidId'];
             $nome = strtoupper($_POST['inputNome']);
             $ano = $_POST['selectAno'];
             $etapa = $_POST['selectEtapa'];
@@ -213,8 +212,18 @@ if (isset($_GET['id'])){
             
             mysqli_query($connection, "BEGIN");
 
-            $sql = "INSERT INTO turma (`ano`, `nome`, `etapa`, `modulo`, `dia_semana`, `turno`, `horario`, `sala`, `is_aberta`) ";
-            $sql .= "VALUES ('".$ano."', '".$nome."', '".$etapa."', '".$modulo."', ".$diaSemana.", '".$turno."', '".$horario."', ".$sala.", '1');";
+            if ($id == 0){
+                $sql = "INSERT INTO turma (`ano`, `nome`, `etapa`, `modulo`, `dia_semana`, `turno`, `horario`, `sala`, `is_aberta`) ";
+                $sql .= "VALUES ('".$ano."', '".$nome."', '".$etapa."', '".$modulo."', ".$diaSemana.", '".$turno."', '".$horario."', ".$sala.", '1');";
+                $message = "Turma cadastrada com sucesso.";
+            }else{
+                $sql = "UPDATE turma SET nome = '".$nome."', ano = ".$ano.", etapa = '".$etapa."', modulo = '".$modulo."', ";
+                $sql .= "dia_semana = ".$diaSemana.", turno = '".$turno."', horario = '".$horario."', sala = ".$sala; 
+                $sql .= " WHERE id = ".$id;
+                $message = "Turma atualizada com sucesso.";
+            }
+
+            echo $sql;
             
             
             $query = mysqli_query($connection, $sql);
@@ -222,7 +231,7 @@ if (isset($_GET['id'])){
             
             $sweet = "swal({ ";
             $sweet .= "	title: 'Sucesso'," ;
-            $sweet .= "	text: 'Turma cadastrada com sucesso.!',";
+            $sweet .= "	text: '".$message."',";
             $sweet .= "	type: 'success',";
             $sweet .= "	closeOnConfirm: true ";
             $sweet .= "}, ";
