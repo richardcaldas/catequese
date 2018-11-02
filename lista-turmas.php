@@ -1,5 +1,15 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
+include_once('functions/functions.php');
+
+$sql =  "SELECT * ";
+$sql .=	" FROM turma" ;
+$sql .= " where is_aberta = 1 ";
+$sql .=	" order by ano desc, id desc" ;
+
+$query = mysqli_query($connection, $sql);
+
+
 ?>
 
 
@@ -62,7 +72,7 @@ include_once('common/connection.php');
                                     <thead>
                                     <tr>
                                         <th>Ações</th>
-                                        <th>Número da Turma</th>
+                                        <th>ID</th>
                                         <th>Ano</th>
                                         <th>Nome</th>
                                         <th>Etapa</th>
@@ -77,42 +87,28 @@ include_once('common/connection.php');
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>
-                                            <a href="view-turma.php" data-toggle="tooltip" title="Visualizar informações da Turma"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
-                                            <a href="edit-turma.php" data-toggle="tooltip" title="Editar informações da Turma"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                            <a href="remover-turma.php" data-toggle="tooltip" title="Remover Turma"><i class="fas fa-lg fa-times g-ml-5"></i></a>
-                                        </td>
-                                        <td>1</td>
-                                        <td>2018</td>
-                                        <td>Turma 1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>Segunda-Feira</td>
-                                        <td>Manhã</td>
-                                        <td>10:00</td>
-                                        <td>Sala 3</td>
-                                        <td>Ativa</td>
-                                        <td>João, Paulo, Mateus</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="view-turma.php" data-toggle="tooltip" title="Visualizar informações da Turma"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
-                                            <a href="edit-turma.php" data-toggle="tooltip" title="Editar informações da Turma"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                            <a href="remover-turma.php" data-toggle="tooltip" title="Remover Turma"><i class="fas fa-lg fa-times g-ml-5"></i></a>
-                                        </td>
-                                        <td>2</td>
-                                        <td>2017</td>
-                                        <td>Turma 2</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                        <td>Segunda-Feira</td>
-                                        <td>Tarde</td>
-                                        <td>14:00</td>
-                                        <td>Sala 2</td>
-                                        <td>Ativa</td>
-                                        <td>João, Paulo, Mateus</td>
-                                    </tr>
+                                    <?php
+                                        while($row = mysqli_fetch_assoc($query)) {
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <!-- <a href="view-turma.php" data-toggle="tooltip" title="Visualizar informações da Turma"><i class="fas fa-lg fa-eye g-ml-5"></i></a> -->
+                                                <a href="edit-turmas.php?id=<?php echo $row['id']; ?>" data-toggle="tooltip" title="Editar informações da Turma"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
+                                                <a href="remover-turma.php" data-toggle="tooltip" title="Remover Turma"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                            </td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo $row['ano']; ?></td>
+                                            <td><?php echo $row['nome']; ?></td>
+                                            <td><?php echo $row['etapa']; ?></td>
+                                            <td><?php echo $row['modulo']; ?></td>
+                                            <td><?php echo getDiaSemana($row['dia_semana']); ?></td>
+                                            <td><?php echo $row['turno']; ?></td>
+                                            <td><?php echo $row['horario']; ?></td>
+                                            <td><?php echo $row['sala']; ?></td>
+                                            <td><?php echo showBoolean($row['is_aberta']); ?></td>
+                                            <td></td>
+                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -157,6 +153,9 @@ include_once('common/connection.php');
                 }
 
             });
+
+            applyScrollBody('tableClasses');
+
         } );
 
     </script>

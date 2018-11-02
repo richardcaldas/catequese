@@ -34,5 +34,27 @@
 		}
 	}
 
+	function getDiaSemana($num){
+		if ($num == 1){
+			return "Segunda-feira";
+		}else if ($num == 2){
+			return "Terça-feira";
+		}else if ($num == 3){
+			return "Quarta-feira";
+		}else if ($num == 4){
+			return "Quinta-feira";
+		}else if ($num == 5){
+			return "Sexta-feira";
+		}else if ($num == 6){
+			return "Sábado";
+		}
+	}
+
+	function setNull($value){
+		if ($value == ""){
+			return null;
+		}
+	}
+
 	
 ?>
