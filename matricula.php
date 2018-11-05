@@ -1,5 +1,14 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
+
+//todo fazer os placeholders das datas aparecerem corretamente (no projeto inteiro tem esse problema)
+
+$sql = "select * from catequizando where id = ".$_GET["id"];
+
+$query = mysqli_query($connection, $sql);
+
+$row = mysqli_fetch_assoc($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -56,71 +65,144 @@ include_once('common/connection.php');
                     <div id="nav-1-1-default-hor-left-underline" class="tab-content">
 
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
+                            <form method="post" action="<?php $_PHP_SELF ?>">
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="nome">Nome</label>
+                                        <input required type="text" id="nome" name="nome" class="form-control form-control-md rounded-0" value="<?php echo $row["nome"]; ?>"/>
+                                    </div>
 
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="dataNascimento">Data de Nascimento</label>
+                                        <input required type="date" placeholder="dd/mm/aaaa" id="dataNascimento"  name="dataNascimento" class="form-control form-control-md rounded-0" value="<?php echo $row["data_nascimento"]; ?>"/>
+                                    </div>
 
-
-
-                            <div class="row">
-                                <div class="form-group col-lg-6">
-                                    <label class="" for="nome">Nome</label>
-                                    <input type="text" id="nome" class="form-control form-control-md rounded-0"/>
                                 </div>
 
-                                <div class="form-group col-lg-6">
-                                    <label class="" for="dataNascimento">Data de Nascimento</label>
-                                    <input type="date" placeholder="" id="dataNascimento" class="form-control form-control-md rounded-0"/>
+                                <div class="row">
+
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="celular">Celular</label>
+                                        <input required type="text" id="celular" name="celular" class="form-control form-control-md rounded-0" value="<?php echo $row["tel_celular"]; ?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="email">Email</label>
+                                        <input required type="text" id="email"  name="email" class="form-control form-control-md rounded-0" value="<?php echo $row["email"]; ?>"/>
+                                    </div>
+
                                 </div>
 
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="cidadeNatal">Cidade Natal</label>
-                                    <input type="text" id="cidadeNatal" class="form-control form-control-md rounded-0"/>
-                                </div>
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="estadoNatal">Estado Natal</label>
-                                    <input type="text" id="estadoNatal" class="form-control form-control-md rounded-0"/>
-                                </div>
-
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="endereco">Endereço</label>
-                                    <input type="text"  id="endereco" class="form-control form-control-md rounded-0"/>
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="cidadeNatal">Cidade Natal</label>
+                                        <input required type="text" id="cidadeNatal" name="cidadeNatal" class="form-control form-control-md rounded-0" value="<?php echo $row["cidade_natal"]; ?>"/>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="estadoNatal">Estado Natal</label>
+                                        <input required type="text" id="estadoNatal" name="estadoNatal" class="form-control form-control-md rounded-0" value="<?php echo $row["estado_natal"]; ?>"/>
+                                    </div>
                                 </div>
 
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="bairro">Bairro</label>
-                                    <input type="text" id="bairro" class="form-control form-control-md rounded-0 "/>
-                                </div>
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="turno">Período</label>
-                                    <select  id="turno" class="form-control form-control-md rounded-0 ">
-                                        <option value="1" >Manhã</option>
-                                        <option value="2">Tarde</option>
-                                        <option value="3">Noite</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="horario">Horario</label>
-                                    <input type="datetime-local" id="horario" class="form-control form-control-md rounded-0"/>
+                                <div class="row">
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="endereco">Endereço</label>
+                                        <input required type="text"  id="endereco" name="endereco" class="form-control form-control-md rounded-0" value="<?php echo $row["endereco"]; ?>"/>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="bairro">Bairro</label>
+                                        <input required type="text" id="bairro" name="bairro" class="form-control form-control-md rounded-0" value="<?php echo $row["bairro"]; ?>"/>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="cep">Cep</label>
+                                        <input required type="text" id="cep" name="cep" class="form-control form-control-md rounded-0" value="<?php echo $row["cep"]; ?>"/>
+                                    </div>
                                 </div>
 
-                            </div>
-                            <div class="row">
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="cidade">Cidade</label>
+                                        <input required type="text" id="cidade" name="cidade" class="form-control form-control-md rounded-0" value="<?php echo $row["cidade"]; ?>"/>
+                                    </div>
 
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="sala">Sala</label>
-                                    <input type="text" id="sala" class="form-control form-control-md rounded-0"/>
-                                </div>
-                                <div class="form-group col-lg-4">
-                                    <label class="" for="catequistas">Catequistas</label>
-                                    <input type="text" id="catequistas" class="form-control form-control-md rounded-0"/>
-                                </div>
-                            </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="estado">Estado</label>
+                                        <input required type="text" id="estado" name="estado" class="form-control form-control-md rounded-0" value="<?php echo $row["estado"]; ?>"/>
+                                    </div>
 
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="escola">Escola</label>
+                                        <input required type="text" id="escola" name="escola" class="form-control form-control-md rounded-0" value="<?php echo $row["escola"]; ?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="anoCurso">Ano do Curso</label>
+                                        <input required type="text" id="anoCurso" name="anoCurso" class="form-control form-control-md rounded-0" value="<?php echo $row["ano_curso"]; ?>"/>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="periodo">Periodo do Curso</label>
+                                        <input required type="text" id="periodo" name="periodo" class="form-control form-control-md rounded-0" value="<?php echo $row["periodo"]; ?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="isBatizado">É batizado?</label>
+                                        <input required type="text" id="isBatizado" name="isBatizado" class="form-control form-control-md rounded-0" value="<?php echo $row["is_batizado"]; ?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="dataBatismo">Data do Batismo</label>
+                                        <input required type="date" placeholder="dd/mm/aaaa" id="dataBatismo" name="dataBatismo" class="form-control form-control-md rounded-0" value="<?php echo $row["data_batismo"]; ?>"/>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="paroquiaBatismo">Paróquia de Batismo</label>
+                                        <input required type="text" id="paroquiaBatismo" name="paroquiaBatismo" class="form-control form-control-md rounded-0" value="<?php echo $row["paroquia_batismo"]; ?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="cidadeParoquia">Cidade da Paróquia de Batismo</label>
+                                        <input required type="text" id="cidadeParoquia" name="cidadeParoquia" class="form-control form-control-md rounded-0" value="<?php echo $row["cidade_paroquia"]; ?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="estadoParoquia">Estado da Paróquia de Batismo</label>
+                                        <input required type="text" id="estadoParoquia" name="estadoParoquia" class="form-control form-control-md rounded-0" value="<?php echo $row["estado_paroquia"]; ?>"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="certidao">Certidão de Nascimento</label>
+                                        <input required type="file" id="certidao" name="certidao" class="form-control-file form-control-md rounded-0" value="<?php echo $row["file_certidao_nascimento"];?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="dataConfissao">Data da Confissao</label>
+                                        <input required type="date" id="dataConfissao" name="dataConfissao" class="form-control form-control-md rounded-0" value="<?php echo $row["sacramento_confissao"]; ?>"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label class="" for="dataEucaristia">Data da Primeira Eucaristia</label>
+                                        <input required type="date" id="dataEucaristia" name="dataEucaristia" class="form-control form-control-md rounded-0" value="<?php echo $row["sacramento_eucaristia"]; ?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="row" >
+                                    <div class="form-group col-lg-6 offset-6" >
+                                        <button type="submit" class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15 pull-right">Confirmar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -143,5 +225,56 @@ include_once('common/connection.php');
     </script>
 
 </body>
+
+
+<?php
+include_once('functions/functions.php');
+require_once('common/connection.php');
+
+date_default_timezone_set("America/Sao_Paulo");
+
+
+// todo arrumar o submit do form
+
+if (false && isset($_POST['nome'])){
+
+    $cpf = getOnlyNumber($_POST['cpf']);
+    $name = strtoupper(trim($_POST['nome']));
+    $mail = trim($_POST['email']);
+    $password = trim($_POST['senha']);
+
+    mysqli_query($connection, "BEGIN");
+
+    $sql = "update user set ";
+    $sql .= " email = '".$mail."', nome = '".$name."', cpf = '".$cpf."', password = '".$password."', perfil = 'RESP' ";
+    $sql .= " where id = ".$row["id"];
+    $queryUser = mysqli_query($connection, $sql);
+    $error .= mysqli_error($connection);
+
+    $sweet = "swal({ ";
+    $sweet .= "	title: 'Sucesso'," ;
+    $sweet .= "	type: 'success',";
+    $sweet .= "	closeOnConfirm: true ";
+    $sweet .= "}, ";
+    $sweet .= "function(){ ";
+    $sweet .= "	window.location.href = 'lista-alunos.php'; ";
+    $sweet .= "});";
+
+    if ($queryUser != ''){
+        mysqli_query($connection, "COMMIT");
+        echo '<script type="text/javascript">'.$sweet.'</script>';
+    }else{
+        mysqli_query($connection, "ROLLBACK");
+        if (strpos($error, 'CPF_UNIQUE') !== false){
+            $sweet = "swal('Ops!', 'Este CPF já consta em nossa base de dados!', 'error')";
+            echo '<script type="text/javascript">'.$sweet.'</script>';
+        }else{
+            $sweet = "swal('".$sql."', 'error')";
+            echo '<script type="text/javascript">'.$sweet.'</script>';
+        }
+    }
+}
+
+?>
 
 </html>

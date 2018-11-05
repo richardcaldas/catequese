@@ -92,10 +92,10 @@ $query = mysqli_query($connection, $sql);
                                     ?>
                                         <tr>
                                             <td>
-                                                <a href="view-catequizando.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Visualizar informações do Catequizando"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
-                                                <a href="edit-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Editar informações do Catequizando"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
-                                                <a href="rematricula.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Rematricular Catequizando"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
-                                                <a href="remover-aluno.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Desmatricular Catequizando"><i class="fas fa-lg fa-times g-ml-5"></i></a>
+                                                <a target=_blank href="view-catequizando.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Visualizar informações do Catequizando"><i class="fas fa-lg fa-eye g-ml-5"></i></a>
+                                                <a target=_blank href="matricula.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Editar informações do Catequizando"><i class="fas fa-lg fa-pencil-alt g-ml-5"></i></a>
+                                                <a target=_blank href="rematricula.php?id=<?php echo $row["id"];?>" data-toggle="tooltip" title="Rematricular Catequizando"><i class="fas fa-lg fa-sync-alt g-ml-5"></i></a>
+<!--                                                <a href="remover-aluno.php?id=--><?php //echo $row["id"];?><!--" data-toggle="tooltip" title="Desmatricular Catequizando"><i class="fas fa-lg fa-times g-ml-5"></i></a>-->
                                             </td>
                                             <td><?php echo $row["nomeCatequizando"];?></td>
                                             <td><?php echo $row["nascimentoCatequizando"];?></td>

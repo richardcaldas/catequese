@@ -8,7 +8,7 @@
   
   $logged=false;
   if(isset($_POST["email"])){
-    $url = "lista-alunos.php";
+    $url = "first-login.php";
     if (!empty($_POST["path"])) {
       $url = $_POST["path"];
     }
@@ -72,11 +72,11 @@
 
                 <div class="g-mb-35">
                   <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15 mb-3" type="password" placeholder="Senha" name="password">
-                  <div class="row justify-content-between">
+                  <!--<div class="row justify-content-between">
                     <div class="col align-self-center text-right">
                       <a class="g-font-size-12" href="#!">Esqueceu sua senha?</a>
                     </div>
-                  </div>
+                  </div>-->
                 </div>
 
                 <div class="mb-4">

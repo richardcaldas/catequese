@@ -139,7 +139,7 @@ include_once('functions/functions.php');
         <div class="container">
             <ul class="u-list-inline">
                 <li class="list-inline-item g-mr-7">
-                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="home.php">Home</a>
+                    <a class="u-link-v5 g-color-main g-color-primary--hover" href="index.php">Home</a>
                     <i class="fa fa-angle-right g-ml-7"></i>
                 </li>
                 <li class="list-inline-item g-mr-7">
@@ -169,7 +169,35 @@ include_once('functions/functions.php');
                   <li><span class="g-font-weight-700">Ano:</span> <?php echo $rowTurma['ano']; ?></li>
                   <li><span class="g-font-weight-700">Etapa:</span> <?php echo $rowTurma['etapa']; ?></li>
                   <li><span class="g-font-weight-700">Módulo</span> <?php echo $rowTurma['modulo']; ?></li>
-                  <li><span class="g-font-weight-700">Dia:</span> <?php echo $rowTurma['dia_semana']; ?></li>
+                  <li><span class="g-font-weight-700">Dia:</span> <?php
+                      switch ($rowTurma["dia_semana"]){
+                          case 1:
+                              echo "Domingo";
+                              break;
+                          case 2:
+                              echo "Segunda";
+                              break;
+                          case 3:
+                              echo "Terça";
+                              break;
+                          case 4:
+                              echo "Quarta";
+                              break;
+                          case 5:
+                              echo "Quinta";
+                              break;
+                          case 6:
+                              echo "Sexta";
+                              break;
+                          case 7:
+                              echo "Sábado";
+                              break;
+                          default:
+                              echo "Horario Inválido";
+                              break;
+                      }
+                      
+                      ?></li>
                   <li><span class="g-font-weight-700">Turno</span> <?php echo $rowTurma['turno']; ?></li>
                   <li><span class="g-font-weight-700">Horário</span> <?php echo $rowTurma['horario']; ?></li>
                   <li><span class="g-font-weight-700">Sala</span> <?php echo $rowTurma['sala']; ?></li>
@@ -219,7 +247,7 @@ include_once('functions/functions.php');
         </div>
 
         <div class="col-md-6 g-mb-30">
-          <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">dados da familia</h3>
+          <h3 class="h5 g-color-black g-font-weight-600 text-uppercase">Dados da familia</h3>
           <h3 class="h6 g-color-black g-font-weight-600 text-uppercase"> Pai</h3>
           <ul class="list-unstyled g-font-size-default">
             <li><span class="g-font-weight-700">Nome:</span> <?php echo $rowPai['nome']; ?></li>

@@ -13,80 +13,76 @@
 
 <!-- Header -->
     <header id="js-header" class="u-header u-header--static">
-      <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
-        <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">
-          <div class="container">
-            <!-- Responsive Toggle Button -->
-            <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-minus-3 g-right-0" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
-              <span class="hamburger hamburger--slider">
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-              </span>
-              </span>
-            </button>
+<!--      <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">-->
+<!--        <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">-->
+<!--          <div class="container">-->
+<!--            <!-- Responsive Toggle Button -->
+<!--            <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-minus-3 g-right-0" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">-->
+<!--              <span class="hamburger hamburger--slider">-->
+<!--            <span class="hamburger-box">-->
+<!--              <span class="hamburger-inner"></span>-->
+<!--              </span>-->
+<!--              </span>-->
+<!--            </button>-->
             <!-- End Responsive Toggle Button -->
 
             <!-- Navigation -->
-            <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
-              <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600">
+<!--            <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">-->
+<!--              <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600">-->
                 <!-- Intro -->
-                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+               <!-- <li class="nav-item  g-mx-10--lg g-mx-15--xl">
                   <a href="index.html" class="nav-link g-py-7 g-px-0">Intro</a>
-                </li>
+                </li>-->
                 <!-- End Intro -->
 
                 <!-- Home -->
-                <li class="hs-has-mega-menu nav-item active g-mx-10--lg g-mx-15--xl" data-animation-in="fadeIn" data-animation-out="fadeOut" data-max-width="100%" data-position="center">
-                  <a id="mega-menu-home" class="nav-link g-py-7 g-px-0" href="#!" aria-haspopup="true" aria-expanded="false">Home
-              <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i></a>
-
-                  <!-- Mega Menu -->
-                  <div class="w-100 hs-mega-menu u-shadow-v11 font-weight-normal g-brd-top g-brd-primary g-brd-top-2 g-bg-white g-mt-18 g-mt-8--lg--scrolling" aria-labelledby="mega-menu-home">
-                    <div class="row align-items-stretch no-gutters">
-                      <!-- Home (col) -->
-                      <div class="col-lg-12">
-                        <ul class="list-unstyled">
-                          <li class="dropdown-item ">
-                            <a href="home-default.html" class="nav-link">Default</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-incredible.html" class="nav-link">Incredible</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-studio.html" class="nav-link">Studio</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-allure.html" class="nav-link">Allure</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-inspire.html" class="nav-link">Inspire</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-portfolio.html" class="nav-link">Portfolio</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-creative.html" class="nav-link">Creative</a>
-                          </li>
-                          <li class="dropdown-item ">
-                            <a href="home-projects.html" class="nav-link">Projects</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <!-- End Home (col) -->
-                    </div>
-                  </div>
-                  <!-- End Mega Menu -->
-                </li>
+<!--                <li class="hs-has-mega-menu nav-item active g-mx-10--lg g-mx-15--xl" data-animation-in="fadeIn" data-animation-out="fadeOut" data-max-width="100%" data-position="center">-->
+<!--                  <a id="mega-menu-home" class="nav-link g-py-7 g-px-0" href="#!" aria-haspopup="true" aria-expanded="false">Home-->
+<!--              <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i></a>-->
+<!---->
+<!--                  <!-- Mega Menu -->
+<!--                  <div class="w-100 hs-mega-menu u-shadow-v11 font-weight-normal g-brd-top g-brd-primary g-brd-top-2 g-bg-white g-mt-18 g-mt-8--lg--scrolling" aria-labelledby="mega-menu-home">-->
+<!--                    <div class="row align-items-stretch no-gutters">-->
+<!--                      <!-- Home (col) -->
+<!--                      <div class="col-lg-12">-->
+<!--                        <ul class="list-unstyled">-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-default.html" class="nav-link">Default</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-incredible.html" class="nav-link">Incredible</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-studio.html" class="nav-link">Studio</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-allure.html" class="nav-link">Allure</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-inspire.html" class="nav-link">Inspire</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-portfolio.html" class="nav-link">Portfolio</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-creative.html" class="nav-link">Creative</a>-->
+<!--                          </li>-->
+<!--                          <li class="dropdown-item ">-->
+<!--                            <a href="home-projects.html" class="nav-link">Projects</a>-->
+<!--                          </li>-->
+<!--                        </ul>-->
+<!--                      </div>-->
+<!--                      <!-- End Home (col) -->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <!-- End Mega Menu -->
+<!--                </li>-->
                 <!-- End Home -->
-            </div>
+<!--            </div>-->
             <!-- End Navigation -->
-
-            <div class="d-inline-block g-hidden-md-down g-pos-rel g-valign-middle g-pl-30 g-pl-0--lg">
-              <a class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" href="login.php">Login</a>
-            </div>
-          </div>
-        </nav>
-      </div>
+<!--          </div>-->
+<!--        </nav>-->
+<!--      </div>-->
     </header>
     <!-- End Header -->
 
@@ -113,8 +109,7 @@
         </div>
 
         <div data-animation="fadeInDown" data-animation-delay="2000" data-animation-duration="1500">
-          <a class="btn btn-lg u-btn-outline-black g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15" href="#!">Descubra</a>
-          <a class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15" href="#!">Cadastre-se</a>
+          <a class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15" href="login.php">Entrar</a>
         </div>
       </div>
     </section>
@@ -286,7 +281,7 @@
 
    <?php include 'footer.html';?>
 
-     <a class="js-go-to u-go-to-v1" href="#!" data-type="fixed" data-position='{"bottom": 15,"right": 15}' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+     <a class="js-go-to u-go-to-v1" href="" data-type="fixed" data-position='{"bottom": 15,"right": 15}' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
       <i class="hs-icon hs-icon-arrow-top"></i>
     </a>
   </main>
@@ -339,14 +334,6 @@
 
         // initialization of scroll animation
         $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
-
-        // initialization of counters
-        var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
-
-        // initialization of chart pies with rtl option
-        var rtlItems = $.HSCore.components.HSChartPie.init('.js-pie-rtl', {
-          rtl: true
-        });
 
         // initialization of rating
         $.HSCore.components.HSRating.init($('.js-rating'), {
