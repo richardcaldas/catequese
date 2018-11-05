@@ -107,13 +107,13 @@ $rowResponsavel = mysqli_fetch_assoc($queryResponsavel);
                     <div id="nav-1-1-default-hor-left-underline" class="tab-content">
                         <!-- Edit Profile -->
                         <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-underline--1" role="tabpanel" data-parent="#nav-1-1-default-hor-left-underline">
-                            <h2 class="h4 g-font-weight-300">Exibindo os dados de matrícula do aluno: <strong><?php echo $row["nome"] ?></strong></h2>
+                            <h2 class="h4 g-font-weight-300">Exibindo os dados de matrícula do catequizando: <strong><?php echo $row["nome"] ?></strong></h2>
                             <p>Por favor verifique se os dados abaixo estão corretos.</p>
                                 <form method="post" action="<?php $_PHP_SELF?>">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="nome"><b>Nome</b></label>
-                                            <input id="nome" name="nome" class="form-control form-control-md rounded-0" value="<?php echo $row["nome"] ?>">
+                                            <span id="nome" name="nome" class="rounded-0"><?php echo $row["nome"] ?></span>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="turma"><b>Turma</b></label>
@@ -193,7 +193,7 @@ $rowResponsavel = mysqli_fetch_assoc($queryResponsavel);
                                     </div>
 
                                     <div class="text-sm-right">
-                                        <button type="submit" class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15 pull-right">Confirmar Matricula</button>
+                                        <button type="submit" class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15 pull-right">Confirmar Reinscrição</button>
                                     </div>
 
                             </div>

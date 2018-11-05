@@ -18,7 +18,7 @@
     $sql .= "FROM user u ";
     $sql .= "left join responsavel r on r.email = u.email ";
     $sql .= "where u.email = '".$_POST["email"]."' and password = '".$_POST["password"]."'";
-    echo $sql;
+    
     $query = mysqli_query($connection, $sql);
     
     if (mysqli_num_rows($query) > 0){
@@ -63,7 +63,7 @@
               <!-- Form -->
               <form class="g-py-15" method="post" action="<?php $_PHP_SELF ?>">
                 <?php if ($logged==false and isset($_POST["email"])){ ?>
-                  <h5 class="text-center text-danger">CPF ou senha incorretos.</h5>
+                  <h5 class="text-center text-danger">Email ou senha incorretos.</h5>
                 <?php } ?>
 
                 <div class="mb-4">
