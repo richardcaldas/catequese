@@ -129,15 +129,17 @@ $queryHorarios = mysqli_query($connection, $sqlHorarios);
                                     <div class="row">
                                         <div class="col-lg-4 mt-2 mb-2">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="anoTurma"><b>Ano</b></label>
-                                            <input readonly id="anoTurma" name="anoTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["ano"] ?>"></input>
+                                            <input readonly id="anoTurma" name="anoTurma"
+                                                   class="form-control form-control-md rounded-0"
+                                                   value="<?php echo $rowTurma["ano"] ?>"/>
                                         </div>
                                         <div class="col-lg-4 mt-2 mb-2">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="etapaTurma"><b>Etapa</b></label>
-                                            <input readonly id="etapaTurma" name="etapaTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["etapa"] ?>"></input>
+                                            <input readonly id="etapaTurma" name="etapaTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["etapa"] ?>">
                                         </div>
                                         <div class="col-lg-4 mt-2 mb-2">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="moduloTurma"><b>Módulo</b></label>
-                                            <input readonly id="moduloTurma" name="moduloTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["modulo"] ?>"></input>
+                                            <input readonly id="moduloTurma" name="moduloTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["modulo"] ?>">
                                         </div>
 
                                     </div>
@@ -180,14 +182,13 @@ $queryHorarios = mysqli_query($connection, $sqlHorarios);
                                             </select>
                                         </div>
                                     </div>
+                                </form>
+                        </div>
 
-                                    <div class="text-sm-right mt-lg-5">
-                                        <button type="submit" class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15 pull-right">Confirmar Reinscrição</button>
-                                    </div>
+                        <div class="text-sm-right mt-lg-5">
+                            <button type="submit" class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15 pull-right">Confirmar Reinscrição</button>
+                        </div>
 
-                            </div>
-                        </form>
-                        <!-- End Edit Profile -->
                     </div>
                     <!-- End Tab panes -->
                 </div>

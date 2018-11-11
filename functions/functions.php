@@ -50,6 +50,7 @@
 		} else if ($num == 1){
 		    return "Domingo";
         }
+        return null;
 	}
 
 	function setNull($value){

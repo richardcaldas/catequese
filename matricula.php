@@ -100,7 +100,7 @@ if (isset($_GET["id"])) {
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label class="" for="estadoNatal">Estado Natal</label>
-                                        <select id="estadoNatal" name="estadoNatal" class="form-control form-control-md rounded-0" required">
+                                        <select id="estadoNatal" name="estadoNatal" class="form-control form-control-md rounded-0" required>
                                             <option value="AC" <?php echo $row["estado_natal"] == "AC" ? "selected" : ""; ?>>Acre</option>
                                             <option value="AL" <?php echo $row["estado_natal"] == "AL" ? "selected" : ""; ?>>Alagoas</option>
                                             <option value="AP" <?php echo $row["estado_natal"] == "AP" ? "selected" : ""; ?>>Amapá</option>

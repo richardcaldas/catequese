@@ -91,7 +91,7 @@ if (isset($_GET['id'])){
 
                                 <div class="row">
                                     <div class="form-group col-lg-6">
-                                        <label class="" for="nome">Nome</label>
+                                        <label class="" for="inputNome">Nome</label>
                                         <input type="text" id="inputNome" name="inputNome" value="<?php echo $row['nome']; ?>" class="form-control form-control-md rounded-0" required/>
                                     </div>
 
@@ -99,14 +99,14 @@ if (isset($_GET['id'])){
 
                                 <div class="row">
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="ano">Ano</label>
+                                        <label class="" for="selectAno">Ano</label>
                                         <select id="selectAno" name="selectAno" class="form-control form-control-md rounded-0 ">
                                             <option value="<?php echo date("Y"); ?>" <?php if ($row['ano'] == date("Y")){ echo "selected"; } ?> ><?php echo date("Y"); ?></option>
                                             <option value="<?php echo date("Y") + 1; ?>" <?php if ($row['ano'] == date("Y") + 1) { echo "selected"; } ?>><?php echo date("Y") + 1; ?></option>
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="etapa">Etapa</label>
+                                        <label class="" for="selectEtapa">Etapa</label>
                                         <select  id="selectEtapa" name="selectEtapa" class="form-control form-control-md rounded-0 ">
                                             <option value="Eucaristia" <?php if ($row['etapa'] == "Eucaristia"){ echo "selected"; } ?>>Eucaristia</option>
                                             <option value="Crisma" <?php if ($row['etapa'] == "Crisma"){ echo "selected"; } ?>>Crisma</option>
@@ -114,7 +114,7 @@ if (isset($_GET['id'])){
                                     </div>
 
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="modulo">Modulo</label>
+                                        <label class="" for="selectModulo">Modulo</label>
                                         <select  id="selectModulo" name="selectModulo" class="form-control form-control-md rounded-0 ">
                                             <option value="I" <?php if ($row['modulo'] == "I"){ echo "selected"; } ?>>I</option>
                                             <option value="II" <?php if ($row['modulo'] == "II"){ echo "selected"; } ?>>II</option>
@@ -126,7 +126,7 @@ if (isset($_GET['id'])){
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="diaDaSemana">Dia da Semana</label>
+                                        <label class="" for="selectDiaSemana">Dia da Semana</label>
                                         <select id="selectDiaSemana" name="selectDiaSemana" class="form-control form-control-md rounded-0 ">
                                             <option value="1" <?php if ($row['dia_semana'] == "2"){ echo "selected"; } ?>>Segunda-feira</option>
                                             <option value="2" <?php if ($row['dia_semana'] == "3"){ echo "selected"; } ?>>Terça-feira</option>
@@ -138,7 +138,7 @@ if (isset($_GET['id'])){
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="turno">Período</label>
+                                        <label class="" for="selectTurno">Período</label>
                                         <select id="selectTurno" name="selectTurno" class="form-control form-control-md rounded-0 ">
                                             <option value="Manhã" <?php if ($row['turno'] == "Manhã"){ echo "selected"; } ?>>Manhã</option>
                                             <option value="Tarde" <?php if ($row['turno'] == "Tarde"){ echo "selected"; } ?>>Tarde</option>
@@ -147,7 +147,7 @@ if (isset($_GET['id'])){
                                     </div>
 
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="horario">Horario</label>
+                                        <label class="" for="selectHorario">Horario</label>
                                         <select id="selectHorario" name="selectHorario" class="form-control form-control-md rounded-0 ">
                                             <option value="08:30" <?php if ($row['horario'] == "08:30"){ echo "selected"; } ?>>08:30</option>
                                             <option value="09:00" <?php if ($row['horario'] == "09:00"){ echo "selected"; } ?>>09:00</option>
@@ -161,7 +161,7 @@ if (isset($_GET['id'])){
                                 <div class="row">
 
                                     <div class="form-group col-lg-4">
-                                        <label class="" for="sala">Sala</label>
+                                        <label class="" for="inputSala">Sala</label>
                                         <input type="text" id="inputSala" name="inputSala" value="<?php echo $row['sala']; ?>" class="form-control form-control-md rounded-0"/>
                                     </div>
                                     <div class="form-group col-lg-4">
