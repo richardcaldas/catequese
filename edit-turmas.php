@@ -75,11 +75,18 @@ if (isset($_GET['id'])){
 
                             <form method="post" action="<?php $_PHP_SELF ?>">
                                 <input type="hidden" name="hidId" id="hidId" value="<?php echo $id; ?>">
-                                <div class="row">
-                                    <label class="u-check g-pl-15">
-                                        <input class="g-hidden-xs-up " type="checkbox">
-                                        <span class="btn btn-md btn-block u-btn-outline-lightgray g-color-white--checked g-bg-primary--checked rounded-0">Ativar Turma</span>
-                                    </label>
+                                <div class="col-lg-12">
+                                    <label for="turmaAtiva">Turma ativa?</label>
+                                    <div class="ml-5">
+                                        <div class="pretty p-icon p-smooth" style="font-size: 25px;">
+                                            <input type="checkbox" id="turmaAtiva" <?php echo $row["is_aberta"] ? "checked" : ""; ?>/>
+                                            <div class="state p-success">
+                                                <i class="icon fas  fa-3x fa-check"></i>
+                                                <label></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="row">
@@ -121,12 +128,13 @@ if (isset($_GET['id'])){
                                     <div class="form-group col-lg-4">
                                         <label class="" for="diaDaSemana">Dia da Semana</label>
                                         <select id="selectDiaSemana" name="selectDiaSemana" class="form-control form-control-md rounded-0 ">
-                                            <option value="1" <?php if ($row['dia_semana'] == "1"){ echo "selected"; } ?>>Segunda-feira</option>
-                                            <option value="2" <?php if ($row['dia_semana'] == "2"){ echo "selected"; } ?>>Terça-feira</option>
-                                            <option value="3" <?php if ($row['dia_semana'] == "3"){ echo "selected"; } ?>>Quarta-feira</option>
-                                            <option value="4" <?php if ($row['dia_semana'] == "4"){ echo "selected"; } ?>>Quinta-feira</option>
-                                            <option value="5" <?php if ($row['dia_semana'] == "5"){ echo "selected"; } ?>>Sexta-feira</option>
-                                            <option value="6" <?php if ($row['dia_semana'] == "6"){ echo "selected"; } ?>>Sábado</option>
+                                            <option value="1" <?php if ($row['dia_semana'] == "2"){ echo "selected"; } ?>>Segunda-feira</option>
+                                            <option value="2" <?php if ($row['dia_semana'] == "3"){ echo "selected"; } ?>>Terça-feira</option>
+                                            <option value="3" <?php if ($row['dia_semana'] == "4"){ echo "selected"; } ?>>Quarta-feira</option>
+                                            <option value="4" <?php if ($row['dia_semana'] == "5"){ echo "selected"; } ?>>Quinta-feira</option>
+                                            <option value="5" <?php if ($row['dia_semana'] == "6"){ echo "selected"; } ?>>Sexta-feira</option>
+                                            <option value="6" <?php if ($row['dia_semana'] == "7"){ echo "selected"; } ?>>Sábado</option>
+                                            <option value="6" <?php if ($row['dia_semana'] == "1"){ echo "selected"; } ?>>Domingo</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-4">
@@ -203,6 +211,7 @@ if (isset($_GET['id'])){
             $diaSemana = $_POST['selectDiaSemana'];
             $turno = $_POST['selectTurno'];
             $horario = $_POST['selectHorario'];
+            $turmaAberta = $_POST('turmaAtiva');
             $sala = strtoupper(trim($_POST['inputSala']));
             if ($sala == ""){
                 $sala = "null";
@@ -214,11 +223,11 @@ if (isset($_GET['id'])){
 
             if ($id == 0){
                 $sql = "INSERT INTO turma (`ano`, `nome`, `etapa`, `modulo`, `dia_semana`, `turno`, `horario`, `sala`, `is_aberta`) ";
-                $sql .= "VALUES ('".$ano."', '".$nome."', '".$etapa."', '".$modulo."', ".$diaSemana.", '".$turno."', '".$horario."', ".$sala.", '1');";
+                $sql .= "VALUES ('".$ano."', '".$nome."', '".$etapa."', '".$modulo."', ".$diaSemana.", '".$turno."', '".$horario."', ".$sala.", ".$turmaAberta.");";
                 $message = "Turma cadastrada com sucesso.";
             }else{
                 $sql = "UPDATE turma SET nome = '".$nome."', ano = ".$ano.", etapa = '".$etapa."', modulo = '".$modulo."', ";
-                $sql .= "dia_semana = ".$diaSemana.", turno = '".$turno."', horario = '".$horario."', sala = ".$sala; 
+                $sql .= "dia_semana = ".$diaSemana.", turno = '".$turno."', horario = '".$horario."', sala = ".$sala."', is_aberta = '".$turmaAberta."'";
                 $sql .= " WHERE id = ".$id;
                 $message = "Turma atualizada com sucesso.";
             }

@@ -1,14 +1,14 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
 
-//todo fazer os placeholders das datas aparecerem corretamente (no projeto inteiro tem esse problema)
 
-$sql = "select * from catequizando where id = ".$_GET["id"];
+if (isset($_GET["id"])) {
+    $sql = "select * from catequizando where id = " . $_GET["id"];
 
-$query = mysqli_query($connection, $sql);
+    $query = mysqli_query($connection, $sql);
 
-$row = mysqli_fetch_assoc($query);
-
+    $row = mysqli_fetch_assoc($query);
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ $row = mysqli_fetch_assoc($query);
 
                                     <div class="form-group col-lg-6">
                                         <label class="" for="dataNascimento">Data de Nascimento</label>
-                                        <input required type="date" placeholder="dd/mm/aaaa" id="dataNascimento"  name="dataNascimento" class="form-control form-control-md rounded-0" value="<?php echo $row["data_nascimento"]; ?>"/>
+                                        <input required type="text" id="dataNascimento"  name="dataNascimento" class="form-control form-control-md rounded-0" value="<?php echo DateTime::createFromFormat('Y-m-d h:i:s', $row["data_nascimento"])->format('d/m/Y'); ?>"/>
                                     </div>
 
                                 </div>
@@ -82,7 +82,7 @@ $row = mysqli_fetch_assoc($query);
                                 <div class="row">
 
                                     <div class="form-group col-lg-6">
-                                        <label class="" for="celular">Celular</label>
+                                        <label class="" for="celular">Celular (DDD + Celular)</label>
                                         <input required type="text" id="celular" name="celular" class="form-control form-control-md rounded-0" value="<?php echo $row["tel_celular"]; ?>"/>
                                     </div>
 
@@ -100,7 +100,35 @@ $row = mysqli_fetch_assoc($query);
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label class="" for="estadoNatal">Estado Natal</label>
-                                        <input required type="text" id="estadoNatal" name="estadoNatal" class="form-control form-control-md rounded-0" value="<?php echo $row["estado_natal"]; ?>"/>
+                                        <select id="estadoNatal" name="estadoNatal" class="form-control form-control-md rounded-0" required">
+                                            <option value="AC" <?php echo $row["estado_natal"] == "AC" ? "selected" : ""; ?>>Acre</option>
+                                            <option value="AL" <?php echo $row["estado_natal"] == "AL" ? "selected" : ""; ?>>Alagoas</option>
+                                            <option value="AP" <?php echo $row["estado_natal"] == "AP" ? "selected" : ""; ?>>Amapá</option>
+                                            <option value="AM" <?php echo $row["estado_natal"] == "AM" ? "selected" : ""; ?>>Amazonas</option>
+                                            <option value="BA" <?php echo $row["estado_natal"] == "BA" ? "selected" : ""; ?>>Bahia</option>
+                                            <option value="CE" <?php echo $row["estado_natal"] == "CE" ? "selected" : ""; ?>>Ceará</option>
+                                            <option value="DF" <?php echo $row["estado_natal"] == "DF" ? "selected" : ""; ?>>Distrito Federal</option>
+                                            <option value="ES" <?php echo $row["estado_natal"] == "ES" ? "selected" : ""; ?>>Espírito Santo</option>
+                                            <option value="GO" <?php echo $row["estado_natal"] == "GO" ? "selected" : ""; ?>>Goiás</option>
+                                            <option value="MA" <?php echo $row["estado_natal"] == "MA" ? "selected" : ""; ?>>Maranhão</option>
+                                            <option value="MT" <?php echo $row["estado_natal"] == "MT" ? "selected" : ""; ?>>Mato Grosso</option>
+                                            <option value="MS" <?php echo $row["estado_natal"] == "MS" ? "selected" : ""; ?>>Mato Grosso do Sul</option>
+                                            <option value="MG" <?php echo $row["estado_natal"] == "MG" ? "selected" : ""; ?>>Minas Gerais</option>
+                                            <option value="PA" <?php echo $row["estado_natal"] == "PA" ? "selected" : ""; ?>>Pará</option>
+                                            <option value="PB" <?php echo $row["estado_natal"] == "PB" ? "selected" : ""; ?>>Paraíba</option>
+                                            <option value="PR" <?php echo $row["estado_natal"] == "PR" ? "selected" : ""; ?>>Paraná</option>
+                                            <option value="PE" <?php echo $row["estado_natal"] == "PE" ? "selected" : ""; ?>>Pernambuco</option>
+                                            <option value="PI" <?php echo $row["estado_natal"] == "PI" ? "selected" : ""; ?>>Piauí</option>
+                                            <option value="RJ" <?php echo $row["estado_natal"] == "RJ" ? "selected" : ""; ?>>Rio de Janeiro</option>
+                                            <option value="RN" <?php echo $row["estado_natal"] == "RN" ? "selected" : ""; ?>>Rio Grande do Norte</option>
+                                            <option value="RS" <?php echo $row["estado_natal"] == "RS" ? "selected" : ""; ?>>Rio Grande do Sul</option>
+                                            <option value="RO" <?php echo $row["estado_natal"] == "RO" ? "selected" : ""; ?>>Rondônia</option>
+                                            <option value="RR" <?php echo $row["estado_natal"] == "RR" ? "selected" : ""; ?>>Roraima</option>
+                                            <option value="SC" <?php echo $row["estado_natal"] == "SC" ? "selected" : ""; ?>>Santa Catarina</option>
+                                            <option value="SP" <?php echo $row["estado_natal"] == "SP" ? "selected" : ""; ?>>São Paulo</option>
+                                            <option value="SE" <?php echo $row["estado_natal"] == "SE" ? "selected" : ""; ?>>Sergipe</option>
+                                            <option value="TO" <?php echo $row["estado_natal"] == "TO" ? "selected" : ""; ?>>Tocantins</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -127,7 +155,36 @@ $row = mysqli_fetch_assoc($query);
 
                                     <div class="form-group col-lg-6">
                                         <label class="" for="estado">Estado</label>
-                                        <input required type="text" id="estado" name="estado" class="form-control form-control-md rounded-0" value="<?php echo $row["estado"]; ?>"/>
+                                        <select id="estado" name="estado" class="form-control form-control-md rounded-0" required>
+                                            <option value="AC" <?php echo $row["estado"] == "AC" ? "selected" : ""; ?>>Acre</option>
+                                            <option value="AL" <?php echo $row["estado"] == "AL" ? "selected" : ""; ?>>Alagoas</option>
+                                            <option value="AP" <?php echo $row["estado"] == "AP" ? "selected" : ""; ?>>Amapá</option>
+                                            <option value="AM" <?php echo $row["estado"] == "AM" ? "selected" : ""; ?>>Amazonas</option>
+                                            <option value="BA" <?php echo $row["estado"] == "BA" ? "selected" : ""; ?>>Bahia</option>
+                                            <option value="CE" <?php echo $row["estado"] == "CE" ? "selected" : ""; ?>>Ceará</option>
+                                            <option value="DF" <?php echo $row["estado"] == "DF" ? "selected" : ""; ?>>Distrito Federal</option>
+                                            <option value="ES" <?php echo $row["estado"] == "ES" ? "selected" : ""; ?>>Espírito Santo</option>
+                                            <option value="GO" <?php echo $row["estado"] == "GO" ? "selected" : ""; ?>>Goiás</option>
+                                            <option value="MA" <?php echo $row["estado"] == "MA" ? "selected" : ""; ?>>Maranhão</option>
+                                            <option value="MT" <?php echo $row["estado"] == "MT" ? "selected" : ""; ?>>Mato Grosso</option>
+                                            <option value="MS" <?php echo $row["estado"] == "MS" ? "selected" : ""; ?>>Mato Grosso do Sul</option>
+                                            <option value="MG" <?php echo $row["estado"] == "MG" ? "selected" : ""; ?>>Minas Gerais</option>
+                                            <option value="PA" <?php echo $row["estado"] == "PA" ? "selected" : ""; ?>>Pará</option>
+                                            <option value="PB" <?php echo $row["estado"] == "PB" ? "selected" : ""; ?>>Paraíba</option>
+                                            <option value="PR" <?php echo $row["estado"] == "PR" ? "selected" : ""; ?>>Paraná</option>
+                                            <option value="PE" <?php echo $row["estado"] == "PE" ? "selected" : ""; ?>>Pernambuco</option>
+                                            <option value="PI" <?php echo $row["estado"] == "PI" ? "selected" : ""; ?>>Piauí</option>
+                                            <option value="RJ" <?php echo $row["estado"] == "RJ" ? "selected" : ""; ?>>Rio de Janeiro</option>
+                                            <option value="RN" <?php echo $row["estado"] == "RN" ? "selected" : ""; ?>>Rio Grande do Norte</option>
+                                            <option value="RS" <?php echo $row["estado"] == "RS" ? "selected" : ""; ?>>Rio Grande do Sul</option>
+                                            <option value="RO" <?php echo $row["estado"] == "RO" ? "selected" : ""; ?>>Rondônia</option>
+                                            <option value="RR" <?php echo $row["estado"] == "RR" ? "selected" : ""; ?>>Roraima</option>
+                                            <option value="SC" <?php echo $row["estado"] == "SC" ? "selected" : ""; ?>>Santa Catarina</option>
+                                            <option value="SP" <?php echo $row["estado"] == "SP" ? "selected" : ""; ?>>São Paulo</option>
+                                            <option value="SE" <?php echo $row["estado"] == "SE" ? "selected" : ""; ?>>Sergipe</option>
+                                            <option value="TO" <?php echo $row["estado"] == "TO" ? "selected" : ""; ?>>Tocantins</option>
+                                        </select>
+
                                     </div>
 
                                 </div>
@@ -150,13 +207,24 @@ $row = mysqli_fetch_assoc($query);
 
                                 <div class="row">
                                     <div class="form-group col-lg-6">
-                                        <label class="" for="isBatizado">É batizado?</label>
-                                        <input required type="text" id="isBatizado" name="isBatizado" class="form-control form-control-md rounded-0" value="<?php echo $row["is_batizado"]; ?>"/>
+                                        <div class="row form-check">
+                                            <label for="isBatizado">É batizado?</label>
+                                        </div>
+                                        <div class="row form-check" style=" vertical-align: middle; text-align: center;">
+                                            <div class="pretty p-icon p-smooth" style="font-size: 25px;">
+                                                <input type="checkbox" id="isBatizado" <?php echo $row["is_batizado"] ? "checked" : ""; ?>/>
+                                                <div class="state p-success">
+                                                    <i class="icon fas  fa-3x fa-check"></i>
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                     <div class="form-group col-lg-6">
                                         <label class="" for="dataBatismo">Data do Batismo</label>
-                                        <input required type="date" placeholder="dd/mm/aaaa" id="dataBatismo" name="dataBatismo" class="form-control form-control-md rounded-0" value="<?php echo $row["data_batismo"]; ?>"/>
+                                        <input required type="text" id="dataBatismo" name="dataBatismo" class="form-control form-control-md rounded-0" value="<?php echo DateTime::createFromFormat('Y-m-d h:i:s', $row["data_batismo"])->format('d/m/Y'); ?>"/>
                                     </div>
 
 
@@ -175,25 +243,53 @@ $row = mysqli_fetch_assoc($query);
 
                                     <div class="form-group col-lg-4">
                                         <label class="" for="estadoParoquia">Estado da Paróquia de Batismo</label>
-                                        <input required type="text" id="estadoParoquia" name="estadoParoquia" class="form-control form-control-md rounded-0" value="<?php echo $row["estado_paroquia"]; ?>"/>
+                                        <select id="estadoParoquia" name="estadoParoquia" class="form-control form-control-md rounded-0" required >
+                                            <option value="AC" <?php echo $row["estado_paroquia"] == "AC" ? "selected" : ""; ?>>Acre</option>
+                                            <option value="AL" <?php echo $row["estado_paroquia"] == "AL" ? "selected" : ""; ?>>Alagoas</option>
+                                            <option value="AP" <?php echo $row["estado_paroquia"] == "AP" ? "selected" : ""; ?>>Amapá</option>
+                                            <option value="AM" <?php echo $row["estado_paroquia"] == "AM" ? "selected" : ""; ?>>Amazonas</option>
+                                            <option value="BA" <?php echo $row["estado_paroquia"] == "BA" ? "selected" : ""; ?>>Bahia</option>
+                                            <option value="CE" <?php echo $row["estado_paroquia"] == "CE" ? "selected" : ""; ?>>Ceará</option>
+                                            <option value="DF" <?php echo $row["estado_paroquia"] == "DF" ? "selected" : ""; ?>>Distrito Federal</option>
+                                            <option value="ES" <?php echo $row["estado_paroquia"] == "ES" ? "selected" : ""; ?>>Espírito Santo</option>
+                                            <option value="GO" <?php echo $row["estado_paroquia"] == "GO" ? "selected" : ""; ?>>Goiás</option>
+                                            <option value="MA" <?php echo $row["estado_paroquia"] == "MA" ? "selected" : ""; ?>>Maranhão</option>
+                                            <option value="MT" <?php echo $row["estado_paroquia"] == "MT" ? "selected" : ""; ?>>Mato Grosso</option>
+                                            <option value="MS" <?php echo $row["estado_paroquia"] == "MS" ? "selected" : ""; ?>>Mato Grosso do Sul</option>
+                                            <option value="MG" <?php echo $row["estado_paroquia"] == "MG" ? "selected" : ""; ?>>Minas Gerais</option>
+                                            <option value="PA" <?php echo $row["estado_paroquia"] == "PA" ? "selected" : ""; ?>>Pará</option>
+                                            <option value="PB" <?php echo $row["estado_paroquia"] == "PB" ? "selected" : ""; ?>>Paraíba</option>
+                                            <option value="PR" <?php echo $row["estado_paroquia"] == "PR" ? "selected" : ""; ?>>Paraná</option>
+                                            <option value="PE" <?php echo $row["estado_paroquia"] == "PE" ? "selected" : ""; ?>>Pernambuco</option>
+                                            <option value="PI" <?php echo $row["estado_paroquia"] == "PI" ? "selected" : ""; ?>>Piauí</option>
+                                            <option value="RJ" <?php echo $row["estado_paroquia"] == "RJ" ? "selected" : ""; ?>>Rio de Janeiro</option>
+                                            <option value="RN" <?php echo $row["estado_paroquia"] == "RN" ? "selected" : ""; ?>>Rio Grande do Norte</option>
+                                            <option value="RS" <?php echo $row["estado_paroquia"] == "RS" ? "selected" : ""; ?>>Rio Grande do Sul</option>
+                                            <option value="RO" <?php echo $row["estado_paroquia"] == "RO" ? "selected" : ""; ?>>Rondônia</option>
+                                            <option value="RR" <?php echo $row["estado_paroquia"] == "RR" ? "selected" : ""; ?>>Roraima</option>
+                                            <option value="SC" <?php echo $row["estado_paroquia"] == "SC" ? "selected" : ""; ?>>Santa Catarina</option>
+                                            <option value="SP" <?php echo $row["estado_paroquia"] == "SP" ? "selected" : ""; ?>>São Paulo</option>
+                                            <option value="SE" <?php echo $row["estado_paroquia"] == "SE" ? "selected" : ""; ?>>Sergipe</option>
+                                            <option value="TO" <?php echo $row["estado_paroquia"] == "TO" ? "selected" : ""; ?>>Tocantins</option>
+                                        </select>
                                     </div>
                                 </div>
 
 
                                 <div class="row">
-                                    <div class="form-group col-lg-4">
+<!--                                <div class="form-group col-lg-4">
                                         <label class="" for="certidao">Certidão de Nascimento</label>
-                                        <input required type="file" id="certidao" name="certidao" class="form-control-file form-control-md rounded-0" value="<?php echo $row["file_certidao_nascimento"];?>"/>
+                                        <input required type="file" id="certidao" name="certidao" class="form-control-file form-control-md rounded-0" value="<?php /*echo $row["file_certidao_nascimento"];*/?>"/>
+                                    </div>-->
+
+                                    <div class="form-group col-lg-6">
+                                        <label class="" for="dataConfissao">Data da Confissão</label>
+                                        <input required type="text" id="dataConfissao" name="dataConfissao" class="form-control form-control-md rounded-0" value="<?php echo DateTime::createFromFormat('Y-m-d h:i:s', $row["sacramento_confissao"])->format('d/m/Y'); ?>"/>
                                     </div>
 
-                                    <div class="form-group col-lg-4">
-                                        <label class="" for="dataConfissao">Data da Confissao</label>
-                                        <input required type="date" id="dataConfissao" name="dataConfissao" class="form-control form-control-md rounded-0" value="<?php echo $row["sacramento_confissao"]; ?>"/>
-                                    </div>
-
-                                    <div class="form-group col-lg-4">
+                                    <div class="form-group col-lg-6">
                                         <label class="" for="dataEucaristia">Data da Primeira Eucaristia</label>
-                                        <input required type="date" id="dataEucaristia" name="dataEucaristia" class="form-control form-control-md rounded-0" value="<?php echo $row["sacramento_eucaristia"]; ?>"/>
+                                        <input required type="text" id="dataEucaristia" name="dataEucaristia" class="form-control form-control-md rounded-0" value="<?php echo DateTime::createFromFormat('Y-m-d h:i:s', $row["sacramento_eucaristia"])->format('d/m/Y'); ?>"/>
                                     </div>
                                 </div>
 
@@ -220,6 +316,34 @@ $row = mysqli_fetch_assoc($query);
 
         $(document).on('ready', function () {
             setActiveMenu();
+
+            $('#celular').mask('(00) 0 0000-0000');
+            $('#cep').mask('00000 - 000');
+
+            $('#dataNascimento').datepicker({
+                format: 'dd/mm/yyyy',
+                date: <?php echo "'".DateTime::createFromFormat('Y-m-d h:i:s', $row["data_nascimento"])->format('d/m/Y')."'"; ?>,
+                language: 'pt-BR'
+            });
+
+            $('#dataBatismo').datepicker({
+                format: 'dd/mm/yyyy',
+                date: <?php echo "'".DateTime::createFromFormat('Y-m-d h:i:s', $row["data_batismo"])->format('d/m/Y')."'"; ?>,
+                language: 'pt-BR'
+            });
+
+            $('#dataConfissao').datepicker({
+                format: 'dd/mm/yyyy',
+                date: <?php echo "'".DateTime::createFromFormat('Y-m-d h:i:s', $row["sacramento_confissao"])->format('d/m/Y')."'"; ?>,
+                language: 'pt-BR'
+            });
+
+            $('#dataEucaristia').datepicker({
+                format: 'dd/mm/yyyy',
+                date: <?php echo "'".DateTime::createFromFormat('Y-m-d h:i:s', $row["sacramento_eucaristia"])->format('d/m/Y')."'"; ?>,
+                language: 'pt-BR'
+            });
+
         });
 
     </script>

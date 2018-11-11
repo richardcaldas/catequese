@@ -68,7 +68,7 @@ $row = mysqli_fetch_assoc($query);
 
                                     <div class="form-group col-lg-4">
                                         <label class="" for="email">Email</label>
-                                        <input required type="email" placeholder="" id="email" name="email" class="form-control form-control-md rounded-0" value="<?php echo $row["email"]?>"/>
+                                        <input required type="email" placeholder="" readonly id="email" name="email" class="form-control form-control-md rounded-0" value="<?php echo $row["email"]?>"/>
                                     </div>
 
                                     <div class="form-group col-lg-4">
@@ -134,8 +134,6 @@ require_once('common/connection.php');
 date_default_timezone_set("America/Sao_Paulo");
 
 if (isset($_POST['cpf'])){
-
-    //todo arrumar o cpf no bd, está mandando certo aqui, mas o valor chega errado lá (deve ter algo com o número máximo)
 
     $cpf = getOnlyNumber($_POST['cpf']);
     $name = strtoupper(trim($_POST['nome']));

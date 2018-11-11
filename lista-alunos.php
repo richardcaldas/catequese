@@ -3,7 +3,7 @@ include_once('common/connection.php');
 
 $sql =  "SELECT catequizando.id as id, ";
 $sql .= " catequizando.nome as nomeCatequizando, ";
-$sql .=	" catequizando.data_nascimento as nascimentoCatequizando," ;
+$sql .=	" DATE_FORMAT(catequizando.data_nascimento, '%d/%m/%Y') as nascimentoCatequizando," ;
 $sql .=	" responsavel.nome as nomeResponsavel," ;
 $sql .=	" responsavel.email as emailResponsavel, ";
 $sql .=	" responsavel.tel_celular as telefoneResponsavel";

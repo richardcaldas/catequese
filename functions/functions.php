@@ -35,19 +35,21 @@
 	}
 
 	function getDiaSemana($num){
-		if ($num == 1){
+		if ($num == 2){
 			return "Segunda-feira";
-		}else if ($num == 2){
-			return "Terça-feira";
 		}else if ($num == 3){
-			return "Quarta-feira";
+			return "Terça-feira";
 		}else if ($num == 4){
-			return "Quinta-feira";
+			return "Quarta-feira";
 		}else if ($num == 5){
-			return "Sexta-feira";
+			return "Quinta-feira";
 		}else if ($num == 6){
+			return "Sexta-feira";
+		}else if ($num == 7){
 			return "Sábado";
-		}
+		} else if ($num == 1){
+		    return "Domingo";
+        }
 	}
 
 	function setNull($value){

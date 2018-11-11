@@ -56,6 +56,15 @@ $queryResponsavel = mysqli_query($connection, $sqlResponsavel);
 
 $rowResponsavel = mysqli_fetch_assoc($queryResponsavel);
 
+
+$sqlHorarios =  " select distinct concat(dia_semana, '-', horario) as horarioFormatted ";
+$sqlHorarios .= " from turma ";
+$sqlHorarios .= " where etapa = '".$rowTurma["etapa"]."' ";
+$sqlHorarios .= " and modulo = '".$rowTurma["modulo"]."' ";
+$sqlHorarios .= " and ano = '".$rowTurma["ano"]."' ";
+
+$queryHorarios = mysqli_query($connection, $sqlHorarios);
+
 ?>
 
 
@@ -102,7 +111,7 @@ $rowResponsavel = mysqli_fetch_assoc($queryResponsavel);
                         </li>
                     </ul>
                     <!-- End Nav tabs -->
-
+                    <!-- ano, etapa, módulo, dia da semana e horário -->
                     <!-- Tab panes -->
                     <div id="nav-1-1-default-hor-left-underline" class="tab-content">
                         <!-- Edit Profile -->
@@ -110,89 +119,69 @@ $rowResponsavel = mysqli_fetch_assoc($queryResponsavel);
                             <h2 class="h4 g-font-weight-300">Exibindo os dados de matrícula do catequizando: <strong><?php echo $row["nome"] ?></strong></h2>
                             <p>Por favor verifique se os dados abaixo estão corretos.</p>
                                 <form method="post" action="<?php $_PHP_SELF?>">
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                                   <!-- <div class="row">
+                                        <div class="col-lg-12">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="nome"><b>Nome</b></label>
-                                            <span id="nome" name="nome" class="rounded-0"><?php echo $row["nome"] ?></span>
+                                            <span id="nome" name="nome" class="rounded-0"><?php /*echo $row["nome"] */?></span>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="turma"><b>Turma</b></label>
-                                            <input id="turma" name="turma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["nome"] ?>">
+                                    </div>-->
+
+                                    <div class="row">
+                                        <div class="col-lg-4 mt-2 mb-2">
+                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="anoTurma"><b>Ano</b></label>
+                                            <input readonly id="anoTurma" name="anoTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["ano"] ?>"></input>
                                         </div>
+                                        <div class="col-lg-4 mt-2 mb-2">
+                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="etapaTurma"><b>Etapa</b></label>
+                                            <input readonly id="etapaTurma" name="etapaTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["etapa"] ?>"></input>
+                                        </div>
+                                        <div class="col-lg-4 mt-2 mb-2">
+                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="moduloTurma"><b>Módulo</b></label>
+                                            <input readonly id="moduloTurma" name="moduloTurma" class="form-control form-control-md rounded-0" value="<?php echo $rowTurma["modulo"] ?>"></input>
+                                        </div>
+
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-6 mt-2 mb-2">
+                                        <div class="col-lg-12 mt-2 mb-2">
                                             <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="horario"><b>Horario</b></label>
-                                            <input id="horario" name="horario" class="form-control form-control-md rounded-0" value="<?php
-                                            switch ($rowTurma["dia_semana"]){
-                                                case 1:
-                                                    echo "Domingo"." - ".$rowTurma["horario"];
-                                                    break;
-                                                case 2:
-                                                    echo "Segunda"." - ".$rowTurma["horario"];
-                                                    break;
-                                                case 3:
-                                                    echo "Terça"." - ".$rowTurma["horario"];
-                                                    break;
-                                                case 4:
-                                                    echo "Quarta"." - ".$rowTurma["horario"];
-                                                    break;
-                                                case 5:
-                                                    echo "Quinta"." - ".$rowTurma["horario"];
-                                                    break;
-                                                case 6:
-                                                    echo "Sexta"." - ".$rowTurma["horario"];
-                                                    break;
-                                                case 7:
-                                                    echo "Sábado"." - ".$rowTurma["horario"];
-                                                    break;
-                                                default:
-                                                    echo "Horario Inválido";
-                                                    break;
-                                            }
-                                            ?>"></input>
-                                        </div>
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="nascimento"><b>Data de Nascimento</b></label>
-                                            <input id="nascimento" name="nascimento" class="form-control form-control-md rounded-0" value="<?php echo $row["data_nascimento_formatted"] ?>"></input>
+                                            <select id="horario" name="horario" class="form-control form-control-md rounded-0">
+                                                <?php
+                                                    while($rowHorarios = mysqli_fetch_assoc($queryHorarios)) {
+                                                ?>
+                                                        <option value = ' <?php echo $rowHorarios["horarioFormatted"]?> '>
+                                                            <?php switch (substr($rowHorarios["horarioFormatted"],0,1)){
+                                                                case 1:
+                                                                    echo "Domingo - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                                case 2:
+                                                                    echo "Segunda - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                                case 3:
+                                                                    echo "Terça - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                                case 4:
+                                                                    echo "Quarta - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                                case 5:
+                                                                    echo "Quinta - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                                case 6:
+                                                                    echo "Sexta - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                                case 7:
+                                                                    echo "Sábado - ".substr($rowHorarios["horarioFormatted"], 2, strlen($rowHorarios["horarioFormatted"])-2);
+                                                                    break;
+                                                            }?></option>
+                                                <?php
+                                                    }
+
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="nomePai"><b>Nome do Pai</b></label>
-                                            <input id="nomePai" name="nomePai" class="form-control form-control-md rounded-0" value="<?php echo $rowPai["nome"] ?>"></input>
-                                        </div>
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="nomeMae"><b>Nome da Mãe</b></label>
-                                            <input id="nomeMae" name="nomeMae" class="form-control form-control-md rounded-0" value="<?php echo $rowMae["nome"] ?>"></input>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="email"><b>Email do Responsável</b></label>
-                                            <input id="email" name="email" class="form-control form-control-md rounded-0" value="<?php echo $rowResponsavel["emailResponsavel"] ?>"></input>
-                                        </div>
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="telefone"><b>Telefone do Responsável</b></label>
-                                            <input id="telefone" name="telefone" class="form-control form-control-md rounded-0" value="<?php echo $rowResponsavel["telefoneResponsavel"] ?>"></input>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="celular"><b>Telefone Celular do Responsável</b></label>
-                                            <input id="celular" name="celular"  class="form-control form-control-md rounded-0" value="<?php echo $rowResponsavel["celularResponsavel"] ?>"></input>
-                                        </div>
-                                        <div class="col-lg-6 mt-2 mb-2">
-                                            <label class="d-block d-md-inline-block g-color-gray-dark-v2 g-pr-10" for="endereco"><b>Endereço</b></label>
-                                            <input id="endereco" name="endereco" class="form-control form-control-md rounded-0" value="<?php echo $row["endereco"] ?>"></input>
-                                        </div>
-                                    </div>
-
-                                    <div class="text-sm-right">
+                                    <div class="text-sm-right mt-lg-5">
                                         <button type="submit" class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15 pull-right">Confirmar Reinscrição</button>
                                     </div>
 

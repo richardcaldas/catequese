@@ -192,9 +192,6 @@ include_once('functions/functions.php');
                           case 7:
                               echo "Sábado";
                               break;
-                          default:
-                              echo "Horario Inválido";
-                              break;
                       }
                       
                       ?></li>

@@ -115,6 +115,12 @@
 
       <script type="text/javascript" src="assets/js/jquery.mask.js"></script>
 
+      <link  href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet">
+
+      <link  href="assets/css/datepicker.css" rel="stylesheet">
+      <script type="text/javascript" src="assets/js/datepicker.js"></script>
+      <script type="text/javascript" src="assets/js/datepicker.pt-BR.js"></script>
+
 	  <?php include 'functions/utils.html';?>
 
   </head>
