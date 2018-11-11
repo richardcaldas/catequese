@@ -1,9 +1,7 @@
 <?php include_once("common/session.php");
 include_once('common/connection.php');
 
-//TODO check com email
-
-$sql =  "SELECT * FROM user ";
+$sql =  "SELECT * FROM user where email = '".$_SESSION["email"]."'";
 
 $query = mysqli_query($connection, $sql);
 
